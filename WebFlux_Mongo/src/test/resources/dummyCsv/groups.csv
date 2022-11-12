@@ -1,0 +1,7 @@
+groupId|condition|description
+1|[{key: residence, operator: equals, value: 제주}]|제주 지역에서 결제
+2|[{key: amount, operator: greaterThan, value: 100000},{key: methodType, operator: equals, value: CARD}]|100,000원 이상의 카드 결제
+3|[{key: region, operator: in, value: [충북,제주,대전,광주,대구,전남,충남,울산,부산,경북,경남,창원,세종]},{key: itemCategory, operator: equals, value: FASHION},{key: age, operator: between, value: [0, 70]}]|서울,경기,인천 지역에서외의 70대까지인 사람의 패션 결제
+4|[{key: methodType, operator: equals, value: SEND},{key: residence, operator: not equals, value: $region}]|결제자의 거주 지역외에서의 송금
+5|[{key: methodType, operator: equals, value: SEND},{key: residence, operator: equals, value: $region}]|결제자의 거주 지역에서의 송금
+6|[{key: itemCategory, operator: equals, value: SPORT},{key: age, operator: between, value: [10, 39]}]]| 10~30대 사람의 스포츠 결제

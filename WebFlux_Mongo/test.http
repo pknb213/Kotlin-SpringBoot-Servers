@@ -1,0 +1,81 @@
+### accounts
+GET http://localhost:8080/csv?file=account
+Accept: application/json
+
+###
+POST http://localhost:8080/payment
+Content-Type: application/json
+
+{
+  "accountId": 2,
+  "amount": 2500,
+  "methodType": "송금",
+  "itemCategory": "패션",
+  "region": "서울"
+}
+###
+DELETE http://localhost:8080/account/reset
+Content-Type: application/json
+###
+DELETE http://localhost:8080/payment/reset
+Content-Type: application/json
+###
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "residence": "서울",
+  "age": 17
+}
+
+###
+GET http://localhost:8080/group?groupId=1
+Content-Type: application/json
+
+###
+GET http://localhost:8080/group?groupId=1939217338,1874722560,7,4
+Content-Type: application/json
+
+###
+POST http://localhost:8080/group
+Content-Type: application/json
+
+{
+  "description": "제주 지역에서 결제",
+  "condition": "[{key: residence, operator: equals, value: 제주}]"
+}
+
+###
+POST http://localhost:8080/group
+Content-Type: application/json
+
+{
+  "description": "10,000원 미만의 카드 결제",
+  "condition": "[{key: amount, operator: lessThan, value: 10000},{key: methodType, operator: equals, value: 카울}]"
+}
+
+###
+POST http://localhost:8080/group
+Content-Type: application/json
+
+{
+  "description": "서울, 경기 지역에서의 30대인 사람의 패션 결제",
+  "condition": "[{key: region, operator: in, value: [서울, 경기]},{key: itemCategory, operator: equals, value: 패션},{key: age, operator: between, value: [30, 39]}]"
+}
+###
+POST http://localhost:8080/group
+Content-Type: application/json
+
+{
+  "description": "결제자의 거주 지역외에서의 송금",
+  "condition": "[{key: methodType, operator: equals, value: SEND},{key: residence, operator: not equals, value: $region}]"
+}
+###
+DELETE http://localhost:8080/group?groupId=-770532247
+Content-Type: application/json
+
+### 1939217338 1525585954 -1115886337
+GET http://localhost:8080/statistics?groupId=6
+Content-Type: application/json
+
+###

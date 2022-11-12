@@ -1,0 +1,55 @@
+### City 조회
+GET http://localhost:8080/api/citys
+Accept: application/json
+
+### Travel 조회
+GET http://localhost:8080/api/travels
+Accept: application/json
+
+### City 추가
+POST http://localhost:8080/api/citys
+Content-Type: application/json
+
+{
+  "name": "제주"
+}
+### Travel 추가
+POST http://localhost:8080/api/travels
+Content-Type: application/json
+
+{
+  "name": "자유여행4",
+  "city_id": 5,
+  "start_date": "2022-11-11T00:00:00.000000",
+  "end_date": "2022-11-15T08:00:00.000000"
+}
+### City 업데이트
+PUT http://localhost:8080/api/citys/1
+Content-Type: application/json
+
+{
+  "name": "부산"
+}
+
+### Travel 업데이트
+PUT http://localhost:8080/api/travels/1
+Content-Type: application/json
+
+{
+  "name": "망한여행",
+  "city_id": 2,
+  "start_date": "2022-12-24T00:00:00.000000",
+  "end_date": "2022-12-25T08:00:00.000000"
+}
+
+### City 제거
+DELETE http://localhost:8080/api/citys/1
+Accept: application/json
+
+### Travel 제거
+DELETE http://localhost:8080/api/travels/1
+Accept: application/json
+
+### 사용자별 도시 목록 조회
+GET http://localhost:8080/api/citys/by/users
+Accept: application/json
