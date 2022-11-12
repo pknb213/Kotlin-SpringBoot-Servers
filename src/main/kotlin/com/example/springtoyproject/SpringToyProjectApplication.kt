@@ -1,12 +1,18 @@
 package com.example.springtoyproject
 
+import com.example.springtoyproject.common.MongoUtil
+import org.bson.Document
 import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
+import java.util.Random
 
 @SpringBootApplication
 class SpringToyProjectApplication
@@ -36,6 +42,21 @@ class Controller {
     fun blog(model: Model): String{
         model["title"] = "Blog"
         return "blog"
+    }
+
+    @GetMapping("/mongo")
+    fun db(): String {
+        return Flux.from(MongoUtil.getCollection("test").find())
+            .collectList().map { it }.toString()
+    }
+
+    @PostMapping("/data")
+    fun post(): Mono<Map<String, Int>> {
+        val random = Random()
+        val num = random.nextInt(100)
+        return Mono.from(MongoUtil.getCollection("test").insertOne(
+            Document("data", num)
+        )).map { println(it); mapOf("data" to num) }
     }
 }
 

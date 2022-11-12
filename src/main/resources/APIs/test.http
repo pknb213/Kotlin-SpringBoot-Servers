@@ -1,0 +1,21 @@
+###
+GET {{localhost}}
+
+###
+POST {{localhost}}
+
+###
+GET {{localhost}}/test
+
+###
+GET localhost:8080/model
+
+###
+GET localhost:8080
+
+###
+GET localhost:8080/mongo
+
+###
+POST localhost:8080/data
+
