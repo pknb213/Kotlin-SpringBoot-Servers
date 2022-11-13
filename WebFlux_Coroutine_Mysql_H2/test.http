@@ -1,5 +1,5 @@
 ### City 조회
-GET http://localhost:8080/api/citys
+GET http://localhost:8080/api/citys/4
 Accept: application/json
 
 ### Travel 조회
@@ -11,17 +11,17 @@ POST http://localhost:8080/api/citys
 Content-Type: application/json
 
 {
-  "name": "제주"
+  "name": "부평"
 }
 ### Travel 추가
 POST http://localhost:8080/api/travels
 Content-Type: application/json
 
 {
-  "name": "자유여행4",
-  "city_id": 5,
-  "start_date": "2022-11-11T00:00:00.000000",
-  "end_date": "2022-11-15T08:00:00.000000"
+  "name": "Travel 20",
+  "city_id": 6,
+  "start_date": "2022-11-20T00:00:00.000000",
+  "end_date": "2022-11-25T08:00:00.000000"
 }
 ### City 업데이트
 PUT http://localhost:8080/api/citys/1
