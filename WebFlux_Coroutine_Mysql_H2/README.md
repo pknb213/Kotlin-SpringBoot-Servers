@@ -6,7 +6,6 @@
 - [API](#API)
 - [요구 사항](#요구-사항)
 - [Unit Test](#Unit-Test)
-
 ---
 
 ## 개발 환경
