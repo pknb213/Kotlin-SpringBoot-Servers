@@ -11,14 +11,14 @@ Kotlin Spark API by jetbrains에서 지원한 kotlin용 API 라이브러리를 \
 사용한 Apache Spark 예제 프로젝트입니다.
 
 ## 3. Test Project
-tdo
+TBD
 
 ## 4. WebFlux_Coroutine_Mysql_H2
 Spring5 WebFlux + Coroutine + MySql, H2를 이용한 \
 City, Travel REST 서버입니다. \ 
-간단한 CRUD 및 특정 조건 조회 API 및 Inmemory Unit Test가 존재합니다.
+간단한 CRUD 및 특정 조건 조회 API 및 Inmemory Unit Test로 구현했습니다.
 
 ## 5. WebFlux_Mongo
 Spring5 WebFlux + Mongo를 이용한 \
 User, Payment REST 서버입니다. \
-간단한 CRUD 및 mongo aggregate를 이용한 조회 API 및 Domain Unit Test가 존재합니다.
+간단한 CRUD 및 mongo aggregate를 이용한 조회 API 및 Domain Unit Test로 구현했습니다.
