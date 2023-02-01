@@ -7,7 +7,7 @@ SpringBoot + Reactor + Kotlin를 이용한 \
 기본적인 REST 서버입니다.
 
 ## 2. Spark
-Kotlin Spark API by jetbrains에서 지원한 kotlin용 API 라이브러리를 \
+Kotlin Spark API by jetbrain에서 지원한 kotlin용 API 라이브러리를 \
 사용한 Apache Spark 예제 프로젝트입니다.
 
 ## 3. WebFlux_Coroutine_Mysql_H2
