@@ -8,7 +8,8 @@ SpringBoot + Reactor + Kotlin를 이용한 \
 
 ## 2. Spark
 Kotlin Spark API by jetbrain에서 지원한 kotlin용 API 라이브러리를 \
-사용한 Apache Spark 예제 프로젝트입니다.
+사용한 Apache Spark 예제 프로젝트입니다. \
+현재 리펙토링 예정이 없습니다.
 
 ## 3. WebFlux_Coroutine_Mysql_H2
 Spring5 WebFlux + Coroutine + MySql, H2를 이용한 \
