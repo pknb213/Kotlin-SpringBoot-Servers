@@ -1,11 +1,11 @@
-package com.example.springbootserver
+package com.example.springbootrestserver
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringBootServerApplication
+class SpringBootRestServerApplication
 
 fun main(args: Array<String>) {
-	runApplication<SpringBootServerApplication>(*args)
+    runApplication<SpringBootRestServerApplication>(*args)
 }

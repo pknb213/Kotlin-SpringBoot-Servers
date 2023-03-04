@@ -1,5 +1,5 @@
 ### City 조회
-GET http://localhost:8080/api/citys/4
+GET http://localhost:8080/api/citys
 Accept: application/json
 
 ### Travel 조회
