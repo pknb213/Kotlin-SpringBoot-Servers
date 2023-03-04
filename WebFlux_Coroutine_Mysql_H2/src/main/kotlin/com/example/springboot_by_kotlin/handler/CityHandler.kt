@@ -31,7 +31,7 @@ class CityHandler (
             )
     }
 
-    suspend fun getById(req: ServerRequest): ServerResponse {
+        suspend fun getById(req: ServerRequest): ServerResponse {
         val id = Integer.parseInt(req.pathVariable("id"))
         val existingCity = cityRepository.findById(id.toLong())
         statisticRepository.save(Statistic(city_id = id.toLong()))
