@@ -1,4 +1,4 @@
-package com.example.springboot_by_kotlin.utils
+package com.example.springbootrestserver.util
 
 import io.r2dbc.spi.ConnectionFactories
 import io.r2dbc.spi.ConnectionFactory
@@ -12,12 +12,10 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
 
-
 @Configuration
 @EnableR2dbcRepositories
 @Profile("prod")
-class MysqlDatabaseConfig {
-    // Ref: https://github.com/mirromutth/r2dbc-mysql, https://github.com/r2dbc/r2dbc-pool
+class MysqlConfig {
     @Bean
     fun connectionFactory(): ConnectionFactory = ConnectionFactories.get(
         ConnectionFactoryOptions.builder()
@@ -33,7 +31,10 @@ class MysqlDatabaseConfig {
     )
 
     @Bean
-    fun initializeTable(@Qualifier("connectionFactory")connectionFactory: ConnectionFactory): ConnectionFactoryInitializer {
+    fun initializeTable(
+        @Qualifier("connectionFactory")
+        connectionFactory: ConnectionFactory
+    ): ConnectionFactoryInitializer {
         val initializer = ConnectionFactoryInitializer()
         initializer.setConnectionFactory(connectionFactory)
         initializer.setDatabasePopulator(ResourceDatabasePopulator(ClassPathResource("migrations/V1__init.sql")))

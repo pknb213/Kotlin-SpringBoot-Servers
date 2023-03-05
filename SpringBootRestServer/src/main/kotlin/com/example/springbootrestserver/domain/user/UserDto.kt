@@ -1,6 +1,6 @@
 package com.example.springbootrestserver.domain.user
 
-class UserDto (
+data class UserDto (
     val name: String
 )
 

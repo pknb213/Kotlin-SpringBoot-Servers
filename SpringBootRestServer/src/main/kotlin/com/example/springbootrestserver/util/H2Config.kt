@@ -13,7 +13,10 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
 @Profile("dev", "test")
 class H2DatabaseConfig {
     @Bean
-    fun initializeTable(@Qualifier("connectionFactory") connectionFactory: ConnectionFactory): ConnectionFactoryInitializer {
+    fun initializeTable(
+        @Qualifier("connectionFactory")
+        connectionFactory: ConnectionFactory
+    ): ConnectionFactoryInitializer {
         val initializer = ConnectionFactoryInitializer()
         initializer.setConnectionFactory(connectionFactory)
         initializer.setDatabasePopulator(ResourceDatabasePopulator(ClassPathResource("migrations/V1__init.sql")))

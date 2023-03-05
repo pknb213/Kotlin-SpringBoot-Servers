@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    group:
+      "test": "test,common"
+      "dev":  "dev,common"
+      "prod": "prod,common"
+
+---
+spring:
+  datasource:
+    url: "r2dbc:h2:mem://localhost/testdb;MODE=MYSQL;DATABASE_TO_LOWER=true;DATABASE_TO_UPPER=false"
+    username: "sa"
+    password:
+  config:
+    activate:
+      on-profile: "test"
+
+---
+spring:
+  datasource:
+    url: "r2dbc:pool:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8"
+    username: "root"
+    password: "devpassword"
+  config:
+    activate:
+      on-profile: "prod"
+
+logging:
+  level:
+    org.springframework.r2dbc.core: debug
+
+---
+spring:
+  datasource:
+    url: "r2dbc:postgresql://localhost:5432/developer"
+    username: "developer"
+    password: "devpassword"
+  config:
+    activate:
+      on-profile: "prod"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "common"
+
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
