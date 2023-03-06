@@ -1,4 +1,4 @@
-package com.example.springbootrestserver.util
+package com.example.springbootrestserver.global.config
 
 import io.r2dbc.spi.ConnectionFactory
 import org.springframework.beans.factory.annotation.Qualifier

@@ -1,4 +1,4 @@
-package com.example.springbootrestserver.util
+package com.example.springbootrestserver.global.config
 
 import com.mongodb.reactivestreams.client.MongoClients
 import org.springframework.context.annotation.Bean

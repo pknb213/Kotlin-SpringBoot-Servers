@@ -1,5 +1,6 @@
-package com.example.springbootrestserver.domain.user
+package com.example.springbootrestserver.domain.user.dao
 
+import com.example.springbootrestserver.domain.user.domain.User
 import kotlinx.coroutines.flow.Flow
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 

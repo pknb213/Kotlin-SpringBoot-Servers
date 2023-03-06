@@ -1,9 +1,6 @@
-package com.example.springbootrestserver.handler
+package com.example.springbootrestserver.domain.user.handler
 
-import com.example.springbootrestserver.domain.user.User
-import com.example.springbootrestserver.domain.user.UserRepository
-import com.example.springbootrestserver.service.UserService
-import kotlinx.coroutines.flow.flow
+import com.example.springbootrestserver.domain.user.service.UserService
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest

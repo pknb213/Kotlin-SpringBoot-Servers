@@ -1,4 +1,4 @@
-package com.example.springbootrestserver.util
+package com.example.springbootrestserver.global.config
 
 import io.r2dbc.spi.ConnectionFactories
 import io.r2dbc.spi.ConnectionFactory

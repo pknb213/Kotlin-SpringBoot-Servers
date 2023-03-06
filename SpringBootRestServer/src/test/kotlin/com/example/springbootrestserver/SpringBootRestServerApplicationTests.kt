@@ -1,6 +1,6 @@
 package com.example.springbootrestserver
 
-import com.example.springbootrestserver.domain.user.UserDto
+import com.example.springbootrestserver.domain.user.dto.UserDto
 import io.kotest.core.spec.style.DescribeSpec
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

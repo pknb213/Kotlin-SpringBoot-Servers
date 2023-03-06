@@ -1,7 +1,7 @@
-package com.example.springbootrestserver.service
+package com.example.springbootrestserver.domain.user.service
 
-import com.example.springbootrestserver.domain.user.User
-import com.example.springbootrestserver.domain.user.UserRepository
+import com.example.springbootrestserver.domain.user.domain.User
+import com.example.springbootrestserver.domain.user.dao.UserRepository
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 
@@ -10,4 +10,5 @@ class UserService(
     private val userRepository: UserRepository
 ) {
     fun showAll(): Flow<User> = userRepository.findAll()
+    
 }
