@@ -15,12 +15,20 @@ class Routers (
         "/api/user".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 GET("", userHandler::getAll)
-                POST("", userHandler::getAll)
+                POST("", userHandler::postOne)
                 "/{id}".nest {
-                    GET("", userHandler::getAll)
-                    PUT("", userHandler::getAll)
-                    DELETE("", userHandler::getAll)
+                    GET("", userHandler::getOne)
+                    PUT("", userHandler::putOne)
+                    DELETE("", userHandler::deleteOne)
                 }
+            }
+        }
+    }
+    @Bean
+    fun boardRouter() = coRouter {
+        "/api/board".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+
             }
         }
     }

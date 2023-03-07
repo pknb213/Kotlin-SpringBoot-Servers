@@ -15,7 +15,7 @@ class SpringBootRestServerApplicationTests {
 
 }
 class CalDescribeSpec : DescribeSpec({
-    val stub = UserDto("User1")
+//    val stub = UserDto()
 
     describe("calculate") {
         context("식이 주어지면") {
