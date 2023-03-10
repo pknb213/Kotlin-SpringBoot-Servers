@@ -16,4 +16,9 @@ interface UserRepository:CoroutineCrudRepository<User, Long> {
         
     """)
     fun findByEmailAndPassword(email: String, password: String): User?
+
+    @Query("""
+        
+    """)
+    fun findByField(vararg field: String): User?
 }

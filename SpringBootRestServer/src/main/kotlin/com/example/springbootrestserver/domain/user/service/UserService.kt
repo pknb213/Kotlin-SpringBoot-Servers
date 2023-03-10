@@ -3,6 +3,7 @@ package com.example.springbootrestserver.domain.user.service
 import com.example.springbootrestserver.domain.user.domain.User
 import com.example.springbootrestserver.domain.user.dao.UserRepository
 import com.example.springbootrestserver.domain.user.dto.LoginDto
+import com.example.springbootrestserver.domain.user.dto.SignUpDto
 import com.example.springbootrestserver.global.common.StatusResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -29,5 +30,16 @@ class UserService(
             StatusResponse.status200Ok(it)
         } ?: StatusResponse.status404NotFound()
     }
-    suspend fun SignUp()
+    suspend fun SignUp(signUpDto: SignUpDto): Map<String, Any?> {
+        return userRepository.findByField()?.let {
+
+            StatusResponse.status200Ok()
+        } ?: StatusResponse.status404NotFound()
+    }
+    suspend fun editUserProfile(): Map<String, Any?> {
+        return userRepository.findByField()?.let {
+
+            StatusResponse.status200Ok()
+        } ?: StatusResponse.status404NotFound()
+    }
 }
