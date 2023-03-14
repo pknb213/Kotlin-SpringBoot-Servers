@@ -1,3 +1,5 @@
+package com.example.springbootrestserver.global.jwt
+
 import org.springframework.http.HttpHeaders
 import org.springframework.security.core.context.ReactiveSecurityContextHolder
 import org.springframework.stereotype.Component
@@ -11,10 +13,11 @@ class JwtTokenFilter(
     private val jwtService: JwtService
 ): WebFilter {
     override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void> {
-        println("야호~")
         val token = extractTokenFromHeader(exchange)
+        println("Token: $token")
         if (token != null && jwtService.isValidToken(token)) {
             val authentication = jwtService.getAuthentication(token)
+            println("Auth: $authentication")
             return chain.filter(exchange).contextWrite(
                 ReactiveSecurityContextHolder.withAuthentication(authentication))
         }
@@ -26,6 +29,7 @@ class JwtTokenFilter(
 
     private fun extractTokenFromHeader(exchange: ServerWebExchange): String? {
         val authHeader = exchange.request.headers.getFirst(HttpHeaders.AUTHORIZATION)
+        println("Auth Header: $authHeader")
         return if (authHeader != null && authHeader.startsWith("Bearer ")) {
             authHeader.substring(7)
         } else null

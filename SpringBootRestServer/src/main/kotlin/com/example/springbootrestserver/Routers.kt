@@ -17,6 +17,11 @@ class Routers (
                 GET("", userHandler::ping)
             }
         }
+        "/login".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+                POST("", userHandler::login)
+            }
+        }
     }
     @Bean
     fun userRouter() = coRouter {
