@@ -1,7 +1,7 @@
 # Kotlin-SpringBoot-Servers
 Kotlin으로 작성된 서버 저장소입니다. \
 프로젝트 디렉토리로 들어가시면 해당 REAEME.md에 서술되어 있습니다. \
-5번 Portfolio Repo 말고는 스터디용입니다.
+5번 프로젝트만 포트폴리오 용도입니다.
 
 ## 1. Basic_Toy_Project
 SpringBoot3.0 + Reactor + Kotlin + Mongo를 이용한 \
@@ -26,3 +26,4 @@ User, Payment REST 서버입니다. \
 포트폴리오 및 과제용으로 만든 Repo로 \
 Mysql,Postgres(rdb), Mongo(nosql), H2(in memory) 대응 가능한 Rest Server로서 \
 Webflux+Coroutin를 이용한 Reactive 형태이며 Unit, E2E 포함한 서버.
+.
