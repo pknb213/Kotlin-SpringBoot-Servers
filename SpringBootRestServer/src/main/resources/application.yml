@@ -28,6 +28,12 @@ spring:
 logging:
   level:
     org.springframework.r2dbc.core: debug
+---
+# Spring Security 디버깅 출력
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+
 
 ---
 spring:
@@ -49,3 +55,24 @@ server:
   port: 8080
   tomcat:
     uri-encoding: UTF-8
+---
+
+spring:
+  security:
+    user:
+      name: user
+      password: password
+    reactive:
+      authorization:
+        # 인가 처리를 수행하는 ReactiveAuthorizationManager 빈을 설정합니다.
+        manager-bean: customReactiveAuthorizationManager
+
+      # 허용되지 않은 요청에 대한 처리 방식을 정의합니다.
+      access-denied-handler:
+        # 허용되지 않은 요청 시 리다이렉트할 경로를 설정합니다.
+        error-page: /error
+
+jwt:
+  secret-key: your-secret-key
+  expirationTime: 18000
+

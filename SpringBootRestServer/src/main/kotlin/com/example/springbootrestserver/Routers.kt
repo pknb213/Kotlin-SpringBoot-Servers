@@ -11,6 +11,19 @@ class Routers (
     private val userHandler: UserHandler
 ){
     @Bean
+    fun pingRouter() = coRouter {
+        "/ping".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+                GET("", userHandler::ping)
+            }
+        }
+        "/login".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+                POST("", userHandler::login)
+            }
+        }
+    }
+    @Bean
     fun userRouter() = coRouter {
         "/api/user".nest {
             accept(MediaType.APPLICATION_JSON).nest {
@@ -24,12 +37,12 @@ class Routers (
             }
         }
     }
-    @Bean
-    fun boardRouter() = coRouter {
-        "/api/board".nest {
-            accept(MediaType.APPLICATION_JSON).nest {
-
-            }
-        }
-    }
+//    @Bean
+//    fun boardRouter() = coRouter {
+//        "/api/board".nest {
+//            accept(MediaType.APPLICATION_JSON).nest {
+//
+//            }
+//        }
+//    }
 }

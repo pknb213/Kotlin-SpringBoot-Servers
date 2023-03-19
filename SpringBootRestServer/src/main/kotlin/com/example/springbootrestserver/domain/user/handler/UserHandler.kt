@@ -14,6 +14,10 @@ import org.springframework.web.reactive.function.server.*
 class UserHandler(
     private val userService: UserService
 ) {
+    suspend fun ping(req: ServerRequest): ServerResponse {
+        println("Pong")
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).buildAndAwait()
+    }
     suspend fun login(req: ServerRequest): ServerResponse {
         val receivedUser = req.awaitBodyOrNull(LoginDto::class)
         return receivedUser?.let {
