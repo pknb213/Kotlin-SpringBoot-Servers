@@ -2,6 +2,7 @@ package com.example.springbootrestserver.global.jwt
 
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.Jwts
+//import io.jsonwebtoken.Jwts.parserBuilder
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -25,6 +26,7 @@ class JwtService ( // @Autowired constructor 생략 함
     }
 
     fun generateToken(authentication: Authentication): String {
+        println("Generate Token?")
         val authorities = authentication.authorities
             .map { it.authority }
             .joinToString(separator = ",")
@@ -41,17 +43,26 @@ class JwtService ( // @Autowired constructor 생략 함
     }
 
     fun isValidToken(token: String?): Boolean {
+        println("Is Valid Token?")
         return try {
+            println("Try: ${Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)}")
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
+//            parserBuilder()
+//                .requireAudience(secretKey)
+//                .build()
+//                .parse(token)
             true
         } catch (e: JwtException) {
+            println("Jwt Eception ${e}")
             false
         } catch (e: IllegalArgumentException) {
+            println("IllegalArg Exception ${e}")
             false
         }
     }
 
     fun getAuthentication(token: String): Authentication {
+        println("GET Auth?")
         val claims = Jwts.parser()
             .setSigningKey(secretKey)
             .parseClaimsJws(token)

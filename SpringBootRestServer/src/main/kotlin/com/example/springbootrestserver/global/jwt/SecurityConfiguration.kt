@@ -24,18 +24,7 @@ class SecurityConfiguration (
     }
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
-//        return http
-//            .csrf().disable()
-//            .formLogin().disable()
-//            .httpBasic().disable()
-//            .authorizeExchange()
-//            .pathMatchers("/login").permitAll()
-//            .pathMatchers(HttpMethod.POST, "/login").permitAll()
-//            .pathMatchers("/ping").permitAll() // /ping API에 대해 인증을 거치지 않도록 설정
-//            .anyExchange().authenticated()
-//            .and()
-//            .build()
-
+        println("spring security filter chain start")
         return http
             .csrf().disable()
             .authorizeExchange()
@@ -45,16 +34,7 @@ class SecurityConfiguration (
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
             .build()
-//        return http
-//            .httpBasic().disable()
-//            .csrf().disable()
-//            .authorizeExchange()
-//            .anyExchange().permitAll()
-//            .and()
-//            .addFilterAt(JwtTokenFilter(jwtService), SecurityWebFiltersOrder.AUTHENTICATION)
-//            .build()
     }
-
 
     @Bean
     fun passwordEncoder(): PasswordEncoder {

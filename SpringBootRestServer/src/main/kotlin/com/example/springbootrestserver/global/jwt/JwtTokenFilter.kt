@@ -21,9 +21,10 @@ class JwtTokenFilter(
             return chain.filter(exchange).contextWrite(
                 ReactiveSecurityContextHolder.withAuthentication(authentication))
         }
-        return chain.filter(exchange).then(Mono.fromRunnable {
+        return chain.filter(exchange).then<Void?>(Mono.fromRunnable {
             // print postHandle message
             println("Interceptor: response status ${exchange.response.statusCode}")
+
         })
     }
 
@@ -31,6 +32,7 @@ class JwtTokenFilter(
         val authHeader = exchange.request.headers.getFirst(HttpHeaders.AUTHORIZATION)
         println("Auth Header: $authHeader")
         return if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            println("Starts With Brarer ~${authHeader.substring(7)}")
             authHeader.substring(7)
         } else null
     }

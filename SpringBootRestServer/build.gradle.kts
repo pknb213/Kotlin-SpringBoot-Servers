@@ -24,8 +24,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("io.jsonwebtoken:jjwt:0.9.1") // jwt
+//    implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.h2database:h2") // h2
     runtimeOnly("io.r2dbc:r2dbc-h2") // h2'

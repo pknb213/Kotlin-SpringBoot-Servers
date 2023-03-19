@@ -13,12 +13,12 @@ interface UserRepository:CoroutineCrudRepository<User, Long> {
     override suspend fun deleteById(id: Long)
 
     @Query("""
-        select * from test
+        select * from user
     """)
     fun findByEmailAndPassword(email: String, password: String): User?
 
     @Query("""
-        select * from test
+        select * from user
     """)
     fun findByField(vararg field: String): User?
 }
