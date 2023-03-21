@@ -26,4 +26,3 @@ User, Payment REST 서버입니다. \
 포트폴리오 및 과제용으로 만든 Repo로 \
 Mysql,Postgres(rdb), Mongo(nosql), H2(in memory) 대응 가능한 Rest Server로서 \
 Webflux+Coroutin를 이용한 Reactive 형태이며 Unit, E2E 포함한 서버.
-.
