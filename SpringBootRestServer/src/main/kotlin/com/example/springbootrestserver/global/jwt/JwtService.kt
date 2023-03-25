@@ -2,7 +2,6 @@ package com.example.springbootrestserver.global.jwt
 
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.Jwts
-//import io.jsonwebtoken.Jwts.parserBuilder
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -12,6 +11,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import java.util.*
+import java.util.Base64
+
 
 @Service
 class JwtService ( // @Autowired constructor 생략 함
@@ -26,7 +27,7 @@ class JwtService ( // @Autowired constructor 생략 함
     }
 
     fun generateToken(authentication: Authentication): String {
-        println("Generate Token?")
+        println("Token Generate Start")
         val authorities = authentication.authorities
             .map { it.authority }
             .joinToString(separator = ",")
@@ -42,21 +43,21 @@ class JwtService ( // @Autowired constructor 생략 함
             .compact()
     }
 
+
     fun isValidToken(token: String?): Boolean {
         println("Is Valid Token?")
         return try {
-            println("Try: ${Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)}")
-            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
-//            parserBuilder()
-//                .requireAudience(secretKey)
-//                .build()
-//                .parse(token)
+            val encodedKey = Base64.getEncoder().encodeToString(secretKey.toByteArray())
+            Jwts.parser().setSigningKey(encodedKey).parseClaimsJwt(token)
             true
         } catch (e: JwtException) {
-            println("Jwt Eception ${e}")
+            println("Invalid Token: \nJwt Exception: ${e}")
             false
         } catch (e: IllegalArgumentException) {
-            println("IllegalArg Exception ${e}")
+            println("Invalid Token: \nIllegalArg Exception: ${e}")
+            false
+        } catch (e: Exception) {
+            println("Invalid Token: \nIs Valided Exception: ${e}")
             false
         }
     }

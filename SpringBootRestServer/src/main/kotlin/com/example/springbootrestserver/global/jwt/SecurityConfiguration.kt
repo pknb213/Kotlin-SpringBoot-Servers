@@ -29,7 +29,7 @@ class SecurityConfiguration (
             .csrf().disable()
             .authorizeExchange()
             .pathMatchers("/ping").permitAll()
-            .pathMatchers("/login").permitAll()
+//            .pathMatchers("/login").permitAll()
             .anyExchange().authenticated()
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)

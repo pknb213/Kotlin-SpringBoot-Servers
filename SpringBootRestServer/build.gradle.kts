@@ -25,7 +25,8 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.jsonwebtoken:jjwt:0.9.1") // jwt
-//    implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
+    implementation("javax.xml.bind:jaxb-api:2.4.0-b180830.0359") // Java 9 이후로는 JAXB (Java Architecture for XML Binding)이 제거되었으며, 이로 인해 javax.xml.bind.DatatypeConverter 클래스도 함께 제거
+//    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.2")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.h2database:h2") // h2

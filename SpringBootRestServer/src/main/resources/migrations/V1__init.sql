@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `user`
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,
     name varchar(50) NOT NULL UNIQUE,
+    password varchar(50) NOT NULL,
     created_date timestamp DEFAULT CURRENT_TIMESTAMP,
     updated_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

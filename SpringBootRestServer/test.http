@@ -7,8 +7,19 @@ GET http://localhost:8080/ping
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer "asdasmdlksamdkl"
 
+### Auth 없음
+POST http://localhost:8080/login
+Accept: application/json
 
+### Auth 있음
+POST http://localhost:8080/login
+Content-Type: application/json
+Authorization: Bearer "asdasmdlksamdkl"
 
+{
+  "userId": "test",
+  "password": "1234"
+}
 
 ### Travel 추가
 POST http://localhost:8080/api/travels
