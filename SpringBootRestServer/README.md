@@ -1,5 +1,5 @@
 # ~ Memos ~
-fadfdfdsfxf
+아씨 드럽게 
 # mysql driver
 https://github.com/jasync-sql/jasync-sql/tree/master/samples/spring-kotlin
 
