@@ -2,12 +2,14 @@ package com.example.springbootrestserver.domain.user.service
 
 import com.example.springbootrestserver.domain.user.domain.User
 import com.example.springbootrestserver.domain.user.dao.UserRepository
+import com.example.springbootrestserver.domain.user.domain.UserRole
+import com.example.springbootrestserver.domain.user.domain.toDto
 import com.example.springbootrestserver.domain.user.dto.LoginDto
 import com.example.springbootrestserver.domain.user.dto.SignUpDto
 import com.example.springbootrestserver.global.common.StatusResponse
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.*
 import org.springframework.stereotype.Service
+import reactor.core.publisher.Mono
 
 @Service
 class UserService(
@@ -22,13 +24,36 @@ class UserService(
         }
     }
     suspend fun delete(id: Long): Unit = userRepository.deleteById(id)
-    suspend fun findByEmailAndPassword(email: String, password: String): User? =
-        userRepository.findByEmailAndPassword(email, password)
-    suspend fun login(loginDto: LoginDto): Map<String, Any?> {
-        return findByEmailAndPassword(loginDto.email, loginDto.password)?.let {
-            // 유저 있음 로직 (validate)
-            StatusResponse.status200Ok(it)
-        } ?: StatusResponse.status404NotFound()
+    suspend fun findByEmailAndPassword(email: String, password: String): Flow<User> {
+        println("Email: $email, Pwd: $password")
+//        val user = userRepository.findByEmailAndPassword(email, password)
+        val user = userRepository.findByEmailAndPassword()
+        println(">>> $user")
+        return user
+//        return User(email="test", password = "1234", name = "test", role = UserRole.Client, verified = true)
+    }
+
+    suspend fun login(loginDto: LoginDto): User { //  Map<String, Any?>
+        // TOdo: 씨팔 이거 걍 통합해 씨발
+//        val user = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
+//        println(user)
+//        return userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
+//            .map { it.toDto() }
+//        return mapOf("개씨발 꼴받아 뒤지곘네" to "나가 다 뒤져라")
+//        return userRepository.save(User("asdsad", "Asd", "asd", UserRole.Client, true))
+//        return userRepository.findAll().map {
+//            println(">> $it")
+//            LoginDto("미친씨팔", "깨씨발좆같은스프링")
+//        }.first()
+//        return userRepository.findByEmailAndPassword().map {
+//            print(">> $it")
+//            LoginDto("미친씨팔", "깨씨발좆같은스프링")
+//        }.first()
+//        return findByEmailAndPassword(loginDto.email, loginDto.password)?.let {
+//            // 유저 있음 로직 (validate)
+//            println("\n>> DB Res: $it")
+//            StatusResponse.status200Ok(it)
+//        } ?: StatusResponse.status404NotFound()
     }
     suspend fun SignUp(signUpDto: SignUpDto): Map<String, Any?> {
         return userRepository.findByField()?.let {

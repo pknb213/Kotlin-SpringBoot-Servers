@@ -9,7 +9,12 @@ Authorization: Bearer "asdasmdlksamdkl"
 
 ### Auth 없음
 POST http://localhost:8080/login
-Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "test",
+  "password": "1234"
+}
 
 ### Auth 있음
 POST http://localhost:8080/login
@@ -17,7 +22,7 @@ Content-Type: application/json
 Authorization: Bearer "asdasmdlksamdkl"
 
 {
-  "userId": "test",
+  "email": "test",
   "password": "1234"
 }
 

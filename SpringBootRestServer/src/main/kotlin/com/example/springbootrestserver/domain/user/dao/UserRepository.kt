@@ -12,10 +12,14 @@ interface UserRepository:CoroutineCrudRepository<User, Long> {
     override suspend fun <S : User> save(entity: S): User
     override suspend fun deleteById(id: Long)
 
+//    @Query("""
+//        select * from user where user.email=(:email) and user.password=(:password)
+//    """)
+//    fun findByEmailAndPassword(email: String, password: String): Flow<User>
     @Query("""
-        select * from user
+        SELECT * FROM user
     """)
-    fun findByEmailAndPassword(email: String, password: String): User?
+    fun findByEmailAndPassword(): Flow<User>
 
     @Query("""
         select * from user

@@ -1,5 +1,6 @@
 package com.example.springbootrestserver.global.jwt
 
+import com.example.springbootrestserver.domain.user.service.UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -16,11 +17,12 @@ import org.springframework.security.web.server.SecurityWebFilterChain
 @Configuration
 @EnableWebFluxSecurity
 class SecurityConfiguration (
-    private val jwtService: JwtService
+    private val jwtService: JwtService,
+    private val userService: UserService
 ) {
     @Bean
     fun jwtAuthenticationFilter(): JwtTokenFilter {
-        return JwtTokenFilter(jwtService)
+        return JwtTokenFilter(jwtService, userService)
     }
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
@@ -29,7 +31,7 @@ class SecurityConfiguration (
             .csrf().disable()
             .authorizeExchange()
             .pathMatchers("/ping").permitAll()
-//            .pathMatchers("/login").permitAll()
+            .pathMatchers("/login").permitAll()
             .anyExchange().authenticated()
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)

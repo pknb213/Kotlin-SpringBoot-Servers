@@ -21,11 +21,14 @@ class UserHandler(
     suspend fun login(req: ServerRequest): ServerResponse {
         val receivedUser = req.awaitBodyOrNull(LoginDto::class)
         return receivedUser?.let {
+            println("User: $receivedUser")
             ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValueAndAwait(
                     userService.login(it)
+//                    LoginDto("미친씨팔", "깨씨발좆같은스프링")
+//                    mapOf("미친씨팔" to "깨씨발좆같은스프링")
                 )
         } ?: ServerResponse.badRequest().buildAndAwait()
     }

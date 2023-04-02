@@ -1,11 +1,11 @@
 package com.example.springbootrestserver.domain.user.dto
 
-class LoginDto (
+data class LoginDto (
     val email: String,
     val password: String
 )
 
-//fun LoginDto.toEntity(): User = User(
-//    email = email,
-//    password = password,
-//)
+fun LoginDto.toEntity(): LoginDto = LoginDto(
+    email = email,
+    password = password,
+)

@@ -4,11 +4,13 @@
 CREATE TABLE IF NOT EXISTS `user`
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,
-    name varchar(50) NOT NULL UNIQUE,
+    email varchar(50) NOT NULL UNIQUE,
+    name varchar(50) NOT NULL,
     password varchar(50) NOT NULL,
     created_date timestamp DEFAULT CURRENT_TIMESTAMP,
     updated_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+-- INSERT INTO user(name, password, created_date, updated_date) VALUES ('test', '1234', '2023-04-01 09:00:00', '2023-04-01 09:00:00');
 CREATE TABLE IF NOT EXISTS city
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,
