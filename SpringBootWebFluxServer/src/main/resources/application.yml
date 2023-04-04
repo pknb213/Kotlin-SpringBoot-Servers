@@ -35,3 +35,8 @@ server:
   port: 8080
   tomcat:
     uri-encoding: UTF-8
+
+jwt:
+  secret-key: your-secret-key
+  expirationTime: 18000
+
