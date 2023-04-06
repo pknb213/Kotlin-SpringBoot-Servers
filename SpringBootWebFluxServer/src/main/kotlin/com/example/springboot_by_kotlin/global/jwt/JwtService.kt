@@ -1,10 +1,18 @@
 package com.example.springboot_by_kotlin.global.jwt
 
+import com.example.springboot_by_kotlin.domain.user.domain.UserRole
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.Jwts
+import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
+import java.nio.charset.StandardCharsets
+import java.text.SimpleDateFormat
 import java.util.*
 
 @Service
@@ -16,61 +24,72 @@ class JwtService(
 //    private val userDetailsService: UserDetailsService
 ) {
     companion object {
-        private const val AUTHORITIES_KEY = "auth"
+        // Todo: Need to Env
+        private const val AUTHORITIES_KEY = "authorities"
+        private const val SUBJECT_KEY = "sub"
+        private const val ID_KEY = "jti"
+        private const val ISSUE_AT_KEY = "iat"
+        private const val EXPIRATION_KEY = "exp"
     }
-//    fun generateToken(authentication: Authentication): String {
-//        println("Token Generate Start")
-//        val authorities = authentication.authorities
-//            .map { it.authority }
-//            .joinToString(separator = ",")
-//        val now = Date()
-//        val validity = Date(now.time + expirationTime)
-//
-//        return Jwts.builder()
-//            .setSubject(authentication.name)
-//            .claim(AUTHORITIES_KEY, authorities)
-//            .setIssuedAt(now)
-//            .setExpiration(validity)
-//            .signWith(SignatureAlgorithm.HS256, secretKey)
-//            .compact()
-//    }
-    fun generateToken(): String {
+
+    fun generateToken(id: Long?, role: UserRole): String {
         println("Token Generate Start")
-//        val authorities = authentication.authorities
-//            .map { it.authority }
-//            .joinToString(separator = ",")
         val now = Date()
         val validity = Date(now.time + expirationTime)
+        val keyBytes = secretKey.toByteArray(StandardCharsets.UTF_8)
+//        val encodedKeyBytes = Base64.getEncoder().encode(keyBytes)
 
         return Jwts.builder()
             .setSubject("test auth name")
-            .claim(AUTHORITIES_KEY, "JWT,Test")
+            .claim(AUTHORITIES_KEY, role)
+            .setId(id.toString())
             .setIssuedAt(now)
             .setExpiration(validity)
-            .signWith(SignatureAlgorithm.HS256, secretKey)
+            .signWith(SignatureAlgorithm.HS256, secretKey.toByteArray(StandardCharsets.UTF_8))
             .compact()
     }
 
-    fun isValidToken(token: String?): Boolean {
-        println("Is Valid Token?")
+    fun isValidToken(token: String): Boolean {
         return try {
-            val encodedKey = Base64.getEncoder().encodeToString(secretKey.toByteArray())
-            Jwts.parser().setSigningKey(encodedKey).parseClaimsJwt(token)
-            true
+            val getAuth = getAuthentication(token)
+            val dateTime = Date(getAuth["Expiration"].toString().toLong())
+            println("\nToken Info: $getAuth\nToken Create Date: $dateTime\nIs After: ${dateTime.after(Date())}")
+            dateTime.after(Date())
         } catch (e: JwtException) {
-            println("Invalid Token: \nJwt Exception: ${e}")
+            println("Invalid Token - Jwt Exception: $e")
             false
         } catch (e: IllegalArgumentException) {
-            println("Invalid Token: \nIllegalArg Exception: ${e}")
+            println("Invalid Token - IllegalArg Exception: $e")
             false
         } catch (e: Exception) {
-            println("Invalid Token: \nIs Valided Exception: ${e}")
+            println("Invalid Token - Is Validated Exception: $e")
             false
         }
     }
 
+    fun getAuthentication(token: String): Map<String, Any> {
+        return try {
+            val claims = Jwts.parser()
+                .setSigningKey(secretKey.toByteArray(StandardCharsets.UTF_8))
+                .parseClaimsJws(token)
+                .body
+            mapOf(
+                "Id" to claims[ID_KEY].toString(),
+                "Authorities" to claims[AUTHORITIES_KEY].toString().split(","),
+                "Expiration" to claims[EXPIRATION_KEY].toString(),
+                "Subject" to claims[SUBJECT_KEY].toString(),
+                "IssuedAt" to claims[ISSUE_AT_KEY].toString()
+            )
+        } catch (e: MalformedJwtException) {
+            println("Invalid JWT Parser - Jwt Exception: $e")
+            mapOf("success" to false, "msg" to e)
+        } catch (e: Exception) {
+            println("Invalid Token - Is invalidated Exception: $e")
+            mapOf("success" to false, "msg" to e)
+        }
+    }
+
 //    fun getAuthentication(token: String): Authentication {
-//        println("GET Auth?")
 //        val claims = Jwts.parser()
 //            .setSigningKey(secretKey)
 //            .parseClaimsJws(token)
@@ -79,6 +98,7 @@ class JwtService(
 //            .split(",")
 //            .map { SimpleGrantedAuthority(it) }
 //        val userDetails = userDetailsService.loadUserByUsername(claims.subject)
+//        println("Claims: ${claims}\nAuthorities: ${authorities}\nUserDetails: ${userDetails}")
 //        return UsernamePasswordAuthenticationToken(userDetails, "", authorities)
 //    }
 }

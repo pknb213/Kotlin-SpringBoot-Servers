@@ -18,12 +18,12 @@ class Routes (
 ){
     @Bean
     fun pingRouter() = coRouter {
-        "/ping".nest {
+        "/v1/ping".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 GET("", userHandler::ping)
             }
         }
-        "/login".nest {
+        "/v1/login".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 POST("", userHandler::login)
             }

@@ -26,7 +26,7 @@ dependencies {
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.84.Final:osx-aarch_64") // Mac M1 Exception
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-//    implementation("org.springframework.boot:spring-boot-starter-security") // security
+    implementation("org.springframework.boot:spring-boot-starter-security") // security
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

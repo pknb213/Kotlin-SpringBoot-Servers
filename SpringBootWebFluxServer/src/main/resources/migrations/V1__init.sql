@@ -1,17 +1,18 @@
 -- DROP TABLE IF EXISTS travel;
 -- DROP TABLE IF EXISTS city;
 -- DROP TABLE IF EXISTS statistic;
-CREATE TABLE IF NOT EXISTS user
+CREATE TABLE IF NOT EXISTS `user` -- user라는 keyword가 h2에서 reserved 되어 있음. ( `, " 추가 )
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,
     email varchar(50) NOT NULL UNIQUE,
     name varchar(50) NOT NULL,
-    role varchar(10) DEFAULT 'Client',
+    role varchar(10) DEFAULT 'ROLE_USER',
     verified BOOLEAN DEFAULT 0,
     password varchar(50) NOT NULL,
     created_date timestamp DEFAULT CURRENT_TIMESTAMP,
     updated_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+INSERT INTO `user`(email, name, password) VALUES ('test', 'test', '1234');
 CREATE TABLE IF NOT EXISTS city
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,

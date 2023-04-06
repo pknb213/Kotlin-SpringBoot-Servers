@@ -22,8 +22,9 @@ class UserHandler(
         val receivedUser = req.awaitBodyOrNull(LoginDto::class) ?: return ServerResponse.badRequest().buildAndAwait()
         val isUser = userService.login(receivedUser)
         return isUser?.let {
-            println("Login Dto: $receivedUser")
-            println("User Dto: $isUser")
+//            println("Login Dto: $receivedUser")
+//            println("User Dto: $isUser")
+            println("Handler: $it")
             ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)

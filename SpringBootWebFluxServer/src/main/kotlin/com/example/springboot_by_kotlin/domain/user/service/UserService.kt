@@ -10,9 +10,13 @@ import com.example.springboot_by_kotlin.domain.user.dto.UserDto
 import com.example.springboot_by_kotlin.domain.user.dto.toEntity
 import com.example.springboot_by_kotlin.global.common.StatusResponse
 import com.example.springboot_by_kotlin.global.jwt.JwtService
+import io.jsonwebtoken.Jwts
 import kotlinx.coroutines.flow.*
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
+import java.nio.charset.StandardCharsets
 
 @Service
 class UserService(
@@ -33,24 +37,31 @@ class UserService(
         // Todo: 여기에 이제 유저인지 확인하고 일치하면 JWT토큰을 발급하는 로직으로 변경. ex) { success: true, token: "ASdasdsad"}
         // Todo: 그리고 서비스에 대한 Response도 인터페이스를 하나로 일치하는게 좋을 것 같다. 위처럼 {msg: "xxx", success: true, data: []}
         // TOdo: 그러면 Handler도 현재 결과가 없을 때 NotFound 같이 하는 부분을 변경하는게 맞다
-        val isValid = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
-        if (isValid === null) return mapOf("success" to false, "error" to "Invalid Id or Password")
-        val newToken = jwtService.generateToken()
-        println("Token: $newToken")
-        val isValidToken = jwtService.isValidToken(newToken)
-        println("Valid Token?: $isValidToken")
-        return mapOf("success" to isValidToken, "msg" to "Testing Login~", "data" to listOf<Map<String, Any>>(mapOf("token" to newToken)))
+        val user = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
+        if (user === null) return mapOf("success" to false, "error" to "Invalid Id or Password")
+//        val authenticationToken = UsernamePasswordAuthenticationToken(loginDto.email, loginDto.password)
+//        val authentication = authenticationManager.authenticate(authenticationToken)
+//        SecurityContextHolder.getContext().authentication = authentication
+        val newToken = jwtService.generateToken(user.id, user.role)
+        val authMap = jwtService.getAuthentication(newToken)
+        println("New Token: ${newToken}\nAuth: $authMap")
+        val claims = Jwts.parser()
+            .setSigningKey("your-secret-key".toByteArray(StandardCharsets.UTF_8))
+            .parseClaimsJws(newToken)
+        println("New Claims: $claims")
+        jwtService.isValidToken(newToken)
+//        val isValidToken = jwtService.isValidToken(newToken)
+//        println("Valid Token?: $isValidToken")
+        return mapOf("success" to true, "msg" to "Testing Login~", "data" to listOf<Map<String, Any>>(mapOf("token" to newToken)))
 //        return userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)?.toDto()
     }
     suspend fun SignUp(signUpDto: SignUpDto): Map<String, Any?> {
         return userRepository.findByField()?.let {
-
             StatusResponse.status200Ok()
         } ?: StatusResponse.status404NotFound()
     }
     suspend fun editUserProfile(): Map<String, Any?> {
         return userRepository.findByField()?.let {
-
             StatusResponse.status200Ok()
         } ?: StatusResponse.status404NotFound()
     }
