@@ -33,10 +33,7 @@ class SecurityConfiguration (
         return http
             .csrf().disable()
             .authorizeExchange()
-            .pathMatchers("/v1/login").permitAll()
-//            .pathMatchers().authenticated()
-//            .pathMatchers("/v1/*").permitAll() //ping
-//            .pathMatchers("/login").permitAll()
+            .pathMatchers("/v1/**").permitAll()
             .anyExchange().authenticated()
             .and()
 //            .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)

@@ -52,8 +52,9 @@ class JwtService(
     fun isValidToken(token: String): Boolean {
         return try {
             val getAuth = getAuthentication(token)
-            val dateTime = Date(getAuth["Expiration"].toString().toLong())
+            val dateTime = Date((getAuth["Expiration"].toString().toLong()) * 1000)
             println("\nToken Info: $getAuth\nToken Create Date: $dateTime\nIs After: ${dateTime.after(Date())}")
+            println("Date Compare: $dateTime, ${Date()}")
             dateTime.after(Date())
         } catch (e: JwtException) {
             println("Invalid Token - Jwt Exception: $e")

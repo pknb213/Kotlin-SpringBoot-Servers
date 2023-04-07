@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `user` -- user라는 keyword가 h2에서 reserved 되
     created_date timestamp DEFAULT CURRENT_TIMESTAMP,
     updated_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-INSERT INTO `user`(email, name, password) VALUES ('test', 'test', '1234');
+-- INSERT INTO `user`(email, name, password) VALUES ('test', 'test', '1234');
 CREATE TABLE IF NOT EXISTS city
 (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,

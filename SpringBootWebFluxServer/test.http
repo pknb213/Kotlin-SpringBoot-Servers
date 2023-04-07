@@ -1,14 +1,14 @@
 ### Auth 없음
-GET http://localhost:8080/ping
+GET http://localhost:8080/v1/ping
 Accept: application/json
 
 ### Auth 있음
-GET http://localhost:8080/ping
+GET http://localhost:8080/v1/ping
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer "asdasmdlksamdkl"
 
 ### Auth 없음
-POST http://localhost:8080/login
+POST http://localhost:8080/v1/login
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Auth 있음
-POST http://localhost:8080/login
+POST http://localhost:8080/v1/login
 Content-Type: application/json
 Authorization: Bearer "asdasmdlksamdkl"
 
