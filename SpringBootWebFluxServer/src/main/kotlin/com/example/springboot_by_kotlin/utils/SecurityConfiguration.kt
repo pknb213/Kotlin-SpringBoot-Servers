@@ -46,7 +46,6 @@ class SecurityConfiguration (
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
             .securityContextRepository(WebSessionServerSecurityContextRepository())
-
             .build()
     }
 

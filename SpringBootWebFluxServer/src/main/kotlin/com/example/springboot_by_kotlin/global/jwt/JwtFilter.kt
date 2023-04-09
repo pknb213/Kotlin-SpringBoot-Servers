@@ -35,12 +35,7 @@ class JwtFilter (
             }
                 .toList()
             println("????? $abc, ${abc.javaClass}, ${abc.get(0)?.javaClass}")
-            """
-            val authentication = UsernamePasswordAuthenticationToken(jwtService.getUsername(token), null, emptyList())
-            val securityContext = SecurityContextImpl(authentication)
-            exchange.attributes.put(ServerWebExchangeAttributes.AUTHENTICATION, authentication)
-            exchange.attributes.put(ServerWebExchangeAttributes.SECURITY_CONTEXT, securityContext)
-            """.trimIndent()
+
 //            val user = User(role = UserRole.ROLE_USER, email = "test", password = "1234", verified = true, name = "test")
             val authentication = UsernamePasswordAuthenticationToken(id, null, abc)//listOf(SimpleGrantedAuthority())
             println("?? $authentication")
@@ -54,9 +49,6 @@ class JwtFilter (
             return securityContextRepository.save(exchange, securityContext).then(
                 chain.filter(exchange)
             )
-
-
-//            ServerWebExchange.save(exchange, securityContext).then(chain.filter(exchange))
         }
         else println("<Filter> Invalid Token")
         return chain.filter(exchange)
