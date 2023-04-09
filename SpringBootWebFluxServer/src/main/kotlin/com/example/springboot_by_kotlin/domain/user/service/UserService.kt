@@ -39,21 +39,22 @@ class UserService(
         // TOdo: 그러면 Handler도 현재 결과가 없을 때 NotFound 같이 하는 부분을 변경하는게 맞다
         val user = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
         if (user === null) return mapOf("success" to false, "error" to "Invalid Id or Password")
-//        val authenticationToken = UsernamePasswordAuthenticationToken(loginDto.email, loginDto.password)
-//        val authentication = authenticationManager.authenticate(authenticationToken)
-//        SecurityContextHolder.getContext().authentication = authentication
-        val newToken = jwtService.generateToken(user.id, user.role)
-        val authMap = jwtService.getAuthentication(newToken)
-        println("New Token: ${newToken}\nAuth: $authMap")
-        val claims = Jwts.parser()
-            .setSigningKey("your-secret-key".toByteArray(StandardCharsets.UTF_8))
-            .parseClaimsJws(newToken)
-        println("New Claims: $claims")
-        jwtService.isValidToken(newToken)
+        val token = jwtService.generateToken(user.id, user.role)
+//        val authMap = jwtService.getAuthentication(newToken)
+//        println("New Token: ${newToken}\nAuth: $authMap")
+//        val claims = Jwts.parser()
+//            .setSigningKey("your-secret-key".toByteArray(StandardCharsets.UTF_8))
+//            .parseClaimsJws(newToken)
+//        println("New Claims: $claims")
+//        jwtService.isValidToken(newToken)
 //        val isValidToken = jwtService.isValidToken(newToken)
 //        println("Valid Token?: $isValidToken")
-        return mapOf("success" to true, "msg" to "Testing Login~", "data" to listOf<Map<String, Any>>(mapOf("token" to newToken)))
-//        return userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)?.toDto()
+        println("Created Token: ${jwtService.getAuthentication(token)}")
+        return mapOf(
+            "success" to true,
+            "msg" to "${loginDto.email} login success.",
+            "data" to listOf(mapOf("token" to token))
+        )
     }
     suspend fun SignUp(signUpDto: SignUpDto): Map<String, Any?> {
         return userRepository.findByField()?.let {

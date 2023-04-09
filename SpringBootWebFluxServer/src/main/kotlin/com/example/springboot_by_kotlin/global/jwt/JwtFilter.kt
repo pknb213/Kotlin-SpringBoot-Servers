@@ -1,33 +1,66 @@
 package com.example.springboot_by_kotlin.global.jwt
 
+import com.example.springboot_by_kotlin.domain.user.domain.User
+import com.example.springboot_by_kotlin.domain.user.domain.UserRole
 import com.example.springboot_by_kotlin.domain.user.service.UserService
 import org.springframework.http.HttpHeaders
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.context.SecurityContextImpl
+import org.springframework.security.web.server.context.ServerSecurityContextRepository
+import org.springframework.security.web.server.context.WebSessionServerSecurityContextRepository
 import org.springframework.web.server.ServerWebExchange
 import org.springframework.web.server.WebFilter
 import org.springframework.web.server.WebFilterChain
 import reactor.core.publisher.Mono
+import java.util.*
 
 class JwtFilter (
     private val jwtService: JwtService,
-    private val userService: UserService
+    private val userService: UserService,
 ) : WebFilter {
     override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void> {
         val request = exchange.request
         val authorizationHeader = request.headers.getFirst(HttpHeaders.AUTHORIZATION)
         val token = extractToken(authorizationHeader)
+        println("<Filter> Extract Token: $token")
         if (token != null && jwtService.isValidToken(token)) {
-            println("Valid Token. => $token")
+            println("<Filter> Valid Token !!")
+            val decodeToken = jwtService.getAuthentication(token)
+            val id = decodeToken["Id"]
+            val authorities = decodeToken["Authorities"] as List<*>
+            val abc = authorities.map {
+                SimpleGrantedAuthority(it.toString())
+            }
+                .toList()
+            println("????? $abc, ${abc.javaClass}, ${abc.get(0)?.javaClass}")
+            """
+            val authentication = UsernamePasswordAuthenticationToken(jwtService.getUsername(token), null, emptyList())
+            val securityContext = SecurityContextImpl(authentication)
+            exchange.attributes.put(ServerWebExchangeAttributes.AUTHENTICATION, authentication)
+            exchange.attributes.put(ServerWebExchangeAttributes.SECURITY_CONTEXT, securityContext)
+            """.trimIndent()
+//            val user = User(role = UserRole.ROLE_USER, email = "test", password = "1234", verified = true, name = "test")
+            val authentication = UsernamePasswordAuthenticationToken(id, null, abc)//listOf(SimpleGrantedAuthority())
+            println("?? $authentication")
+            val securityContext = SecurityContextImpl(authentication)
+            exchange.attributes.putIfAbsent("AUTHENTICATION", authentication)
+            exchange.attributes.putIfAbsent("SECURITY_CONTEXT", securityContext)
+            SecurityContextHolder.getContext().authentication = authentication
+            val securityContextRepository = WebSessionServerSecurityContextRepository()
 
-//            val user = userService.findByUsername(username)
-//            if (user != null) {
-//                val authentication = UsernamePasswordAuthenticationToken(user, null, user.authorities)
-//                SecurityContextHolder.getContext().authentication = authentication
-//            }
-            return chain.filter(exchange)
+            // exchange에 security context를 저장
+            return securityContextRepository.save(exchange, securityContext).then(
+                chain.filter(exchange)
+            )
+
+
+//            ServerWebExchange.save(exchange, securityContext).then(chain.filter(exchange))
         }
-        println("Invalid Token.")
+        else println("<Filter> Invalid Token")
         return chain.filter(exchange)
+//        return exchange.response.setComplete()
     }
 
     private fun extractToken(header: String?): String? {

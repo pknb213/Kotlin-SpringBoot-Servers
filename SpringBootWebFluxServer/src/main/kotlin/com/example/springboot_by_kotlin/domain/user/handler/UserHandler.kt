@@ -32,6 +32,7 @@ class UserHandler(
         } ?: ServerResponse.notFound().buildAndAwait()
     }
     suspend fun getAll(req: ServerRequest): ServerResponse {
+        println("Handler: GetALL")
         return ServerResponse
             .ok()
             .contentType(MediaType.APPLICATION_JSON)

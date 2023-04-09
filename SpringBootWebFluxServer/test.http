@@ -19,12 +19,19 @@ Content-Type: application/json
 ### Auth 있음
 POST http://localhost:8080/v1/login
 Content-Type: application/json
-Authorization: Bearer "asdasmdlksamdkl"
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MTAzMTg2MywiZXhwIjoxNjgyMDMxODYzfQ.ni_O88ctNV2xw27rd0uh_kdyog19nQVqrZfxruCd9dU
 
 {
   "email": "test",
   "password": "1234"
 }
+
+###
+GET http://localhost:8080/api/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MTAzMTg2MywiZXhwIjoxNjgyMDMxODYzfQ.ni_O88ctNV2xw27rd0uh_kdyog19nQVqrZfxruCd9dU
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.asdasdasdsadsadsadsadsadflfdaskjfnjdnfkjdsnf
+
 
 ### City 조회
 GET http://localhost:8080/api/citys

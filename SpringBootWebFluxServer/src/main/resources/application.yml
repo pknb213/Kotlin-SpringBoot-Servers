@@ -46,5 +46,8 @@ server:
 
 jwt:
   secret-key: your-secret-key
-  expirationTime: 18000
+  expirationTime: 1000000000
+#  expirationTime: 300000 # 5분
+
+spring.security.basic.enabled: false
 
