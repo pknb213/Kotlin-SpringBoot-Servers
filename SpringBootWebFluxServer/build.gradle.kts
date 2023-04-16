@@ -32,6 +32,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("io.r2dbc:r2dbc-pool:1.0.0.RELEASE") // ADded
 //    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive") // Mongo
     implementation("io.jsonwebtoken:jjwt:0.9.1") // jwt
     implementation("javax.xml.bind:jaxb-api:2.4.0-b180830.0359") // Java 9 이후로는 JAXB (Java Architecture for XML Binding)이 제거되었으며, 이로 인해 javax.xml.bind.DatatypeConverter 클래스도 함께 제거
