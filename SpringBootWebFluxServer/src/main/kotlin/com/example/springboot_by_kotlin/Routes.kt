@@ -2,6 +2,7 @@ package com.example.springboot_by_kotlin
 
 import com.example.springboot_by_kotlin.domain.user.handler.UserHandler
 import com.example.springboot_by_kotlin.handler.CityHandler
+import com.example.springboot_by_kotlin.handler.SampleHandler
 import com.example.springboot_by_kotlin.handler.StatisticHandler
 import com.example.springboot_by_kotlin.handler.TravelHandler
 import org.springframework.context.annotation.Bean
@@ -15,6 +16,7 @@ class Routes (
     private val travelHandler: TravelHandler,
     private val statisticHandler: StatisticHandler,
     private val userHandler: UserHandler,
+    private val sampleHandler: SampleHandler
 ){
     @Bean
     fun pingRouter() = coRouter {
@@ -26,6 +28,11 @@ class Routes (
         "/v1/login".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 POST("", userHandler::login)
+            }
+        }
+        "/v1/kafka/{topic}".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+                POST("", sampleHandler::test)
             }
         }
     }
