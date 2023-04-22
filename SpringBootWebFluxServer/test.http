@@ -29,9 +29,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1d
 ###
 GET http://localhost:8080/api/user
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MTAzMTg2MywiZXhwIjoxNjgyMDMxODYzfQ.ni_O88ctNV2xw27rd0uh_kdyog19nQVqrZfxruCd9dU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MjE1NTczMiwiZXhwIjoxNjgzMTU1NzMyfQ.YhFlDFHy00-Nkg3djwNxm8kfrve6QVbDiCHYkuEAkSE
 #Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.asdasdasdsadsadsadsadsadflfdaskjfnjdnfkjdsnf
 
+
+### Kafka
+POST http://localhost:8080/v1/kafka/test-topic
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MjE1NTczMiwiZXhwIjoxNjgzMTU1NzMyfQ.YhFlDFHy00-Nkg3djwNxm8kfrve6QVbDiCHYkuEAkSE
+
+{
+  "msg": "Hello Nice to Meet You~"
+}
 
 ### City 조회
 GET http://localhost:8080/api/citys
