@@ -17,6 +17,7 @@ class KafkaHandler(
         return ServerResponse
             .ok()
             .contentType(MediaType.APPLICATION_JSON)
-            .bodyValueAndAwait("Input Topic: $topic")
+            .buildAndAwait()
+//            .bodyValueAndAwait("Input Topic: $topic")
     }
 }
