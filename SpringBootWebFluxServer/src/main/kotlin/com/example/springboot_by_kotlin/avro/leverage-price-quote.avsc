@@ -1,0 +1,9 @@
+{
+ "namespace": "com.example.springboot_by_kotlin.global.kafka",
+ "type": "record",
+ "name": "LeveragePrice",
+ "fields": [
+   { "name": "symbol", "type": "string"},
+   { "name": "leverage", "type": "double"}
+ ]
+}

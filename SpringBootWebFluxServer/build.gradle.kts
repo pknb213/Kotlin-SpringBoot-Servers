@@ -20,6 +20,9 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://packages.confluent.io/maven")
+    }
 }
 
 dependencies {
@@ -27,8 +30,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-security") // security
-    implementation("org.springframework.kafka:spring-kafka") // Kafka
-    implementation("org.springframework.kafka:spring-kafka-streams") // Kafka Stream
+    implementation("org.springframework.kafka:spring-kafka:3.0.4") // Kafka
+    implementation("org.apache.kafka:kafka-streams:3.3.2") // Apache Kafka
+    implementation("org.apache.kafka:kafka-clients:3.3.2") // Client
+    implementation("org.apache.avro:avro:1.11.0") // Avro
+    implementation("io.confluent:kafka-avro-serializer:5.3.0") // Avro
+    implementation("io.confluent:kafka-streams-avro-serde:7.3.3") // Avro
+//    implementation("org.springframework.kafka:spring-kafka-streams") // Kafka Stream
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

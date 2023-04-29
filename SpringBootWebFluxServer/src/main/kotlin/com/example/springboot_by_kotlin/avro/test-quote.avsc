@@ -1,0 +1,8 @@
+{
+ "namespace": "com.example.springboot_by_kotlin.global.kafka",
+ "type": "record",
+ "name": "TestStream",
+ "fields": [
+   { "name": "symbol", "type": "string"},
+ ]
+}

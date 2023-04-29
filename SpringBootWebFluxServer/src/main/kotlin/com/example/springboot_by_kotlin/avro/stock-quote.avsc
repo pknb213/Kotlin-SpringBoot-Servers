@@ -1,0 +1,10 @@
+{
+ "namespace": "com.example.springboot_by_kotlin.global.kafka",
+ "type": "record",
+ "name": "StockQuote",
+ "fields": [
+   { "name": "symbol", "type": "string"},
+   { "name": "tradeValue", "type": "double"},
+   { "name": "tradeTime", "type": ["null", "long"], "default": null}
+ ]
+}
