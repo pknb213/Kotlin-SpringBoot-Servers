@@ -39,10 +39,10 @@ class KafkaStreamConfig {
     @Bean(name = [KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME])
     fun defaultKafkaStreamsConfig(): KafkaStreamsConfiguration {
         val props: MutableMap<String, Any> = HashMap()
-        props[StreamsConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:9092"
-        props[StreamsConfig.DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG] = LogAndContinueExceptionHandler::class.java
-//        props[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = SCHEMA_REGISTRY_URL
         props[StreamsConfig.APPLICATION_ID_CONFIG] = "test-stream"
+        props[StreamsConfig.BOOTSTRAP_SERVERS_CONFIG] = listOf("localhost:9092")
+//        props[StreamsConfig.DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG] = LogAndContinueExceptionHandler::class.java
+//        props[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = SCHEMA_REGISTRY_URL
         props[StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG] = Serdes.String().javaClass.name
         props[StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG] = SpecificAvroSerde::class.java
         props[ConsumerConfig.GROUP_ID_CONFIG] = "test-group"
