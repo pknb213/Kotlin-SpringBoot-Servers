@@ -42,6 +42,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1d
   "msg": "Hello Nice to Meet You~"
 }
 
+### Kafka Stream
+POST http://localhost:8080/v1/kafka/stream/test-topic
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MjE1NTczMiwiZXhwIjoxNjgzMTU1NzMyfQ.YhFlDFHy00-Nkg3djwNxm8kfrve6QVbDiCHYkuEAkSE
+
+{
+  "msg": "Hello Nice to Meet You~"
+}
+
+
 ### City 조회
 GET http://localhost:8080/api/citys
 Accept: application/json

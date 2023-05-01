@@ -1,5 +1,6 @@
 package com.example.springboot_by_kotlin
 
+import TestTopology
 import com.example.springboot_by_kotlin.domain.user.handler.UserHandler
 import com.example.springboot_by_kotlin.handler.CityHandler
 import com.example.springboot_by_kotlin.handler.KafkaHandler
@@ -16,7 +17,8 @@ class Routes (
     private val travelHandler: TravelHandler,
     private val statisticHandler: StatisticHandler,
     private val userHandler: UserHandler,
-    private val kafkaHandler: KafkaHandler
+    private val kafkaHandler: KafkaHandler,
+    private val kafkaStream: TestTopology
 ){
     @Bean
     fun pingRouter() = coRouter {
@@ -33,6 +35,11 @@ class Routes (
         "/v1/kafka/{test-topic}".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 POST("", kafkaHandler::test)
+            }
+        }
+        "/v1/kafka/stream/{test-topic}".nest {
+            accept(MediaType.APPLICATION_JSON).nest {
+                POST("", kafkaStream::test)
             }
         }
     }
