@@ -1,7 +1,8 @@
 # Kotlin-SpringBoot-Servers
+Server repository written in Kotlin. \
+If you go to the project directory, it is listed on the appropriate REAEME.md. \
 Kotlin으로 작성된 서버 저장소입니다. \
 프로젝트 디렉토리로 들어가시면 해당 REAEME.md에 서술되어 있습니다. \
-포트폴리오용 서버는 ''입니다.
 
 ## 1. Basic_Toy_Project
 SpringBoot3.0 + Reactor + Kotlin + Mongo를 이용한 \
@@ -10,7 +11,7 @@ SpringBoot3.0 + Reactor + Kotlin + Mongo를 이용한 \
 ## 2. Spark
 Kotlin Spark API by jetbrain에서 지원한 kotlin용 API 라이브러리를 \
 사용한 Apache Spark 예제 프로젝트입니다. \
-맨날 버전 업데이트 하면서 안되더니 현재 실행 안되고 리펙토링 예정 또한 없습니다.
+현재 실행 안되고 리펙토링 예정 또한 없습니다.
 
 ## 3. WebFlux_Coroutine_Mysql_H2
 Spring5 WebFlux + Coroutine + MySql, H2를 이용한 \
