@@ -2,7 +2,7 @@
 Server repository written in Kotlin. \
 If you go to the project directory, it is listed on the appropriate REAEME.md. \
 Kotlin으로 작성된 서버 저장소입니다. \
-프로젝트 디렉토리로 들어가시면 해당 REAEME.md에 서술되어 있습니다. \
+프로젝트 디렉토리로 들어가시면 해당 REAEME.md에 서술되어 있습니다.
 
 ## 1. Basic_Toy_Project
 SpringBoot3.0 + Reactor + Kotlin + Mongo를 이용한 \
