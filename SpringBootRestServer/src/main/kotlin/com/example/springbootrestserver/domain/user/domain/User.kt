@@ -7,9 +7,11 @@ import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
 enum class UserRole {
-    Client,
-    Owner,
-    Delivery
+    ROLE_USER,
+    ROLE_BASIC,
+    ROLE_CLIENT,
+    ROLE_TEST,
+    ROLE_ADMIN
 }
 
 @Table

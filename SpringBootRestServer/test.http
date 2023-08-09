@@ -1,14 +1,14 @@
 ### Auth 없음
-GET http://localhost:8080/ping
+GET http://localhost:8080/v1/ping
 Accept: application/json
 
 ### Auth 있음
-GET http://localhost:8080/ping
+GET http://localhost:8080/v1/ping
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer "asdasmdlksamdkl"
 
 ### Auth 없음
-POST http://localhost:8080/login
+POST http://localhost:8080/v1/login
 Content-Type: application/json
 
 {
@@ -17,15 +17,46 @@ Content-Type: application/json
 }
 
 ### Auth 있음
-POST http://localhost:8080/login
+POST http://localhost:8080/v1/login
 Content-Type: application/json
-Authorization: Bearer "asdasmdlksamdkl"
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MTAzMTg2MywiZXhwIjoxNjgyMDMxODYzfQ.ni_O88ctNV2xw27rd0uh_kdyog19nQVqrZfxruCd9dU
 
 {
   "email": "test",
   "password": "1234"
 }
 
+###
+GET http://localhost:8080/api/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MjE1NTczMiwiZXhwIjoxNjgzMTU1NzMyfQ.YhFlDFHy00-Nkg3djwNxm8kfrve6QVbDiCHYkuEAkSE
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.asdasdasdsadsadsadsadsadflfdaskjfnjdnfkjdsnf
+
+
+### Kafka
+POST http://localhost:8080/v1/kafka/test-topic
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MjE1NTczMiwiZXhwIjoxNjgzMTU1NzMyfQ.YhFlDFHy00-Nkg3djwNxm8kfrve6QVbDiCHYkuEAkSE
+
+{
+  "msg": "Hello Nice to Meet You~"
+}
+
+### City 조회
+GET http://localhost:8080/api/citys
+Accept: application/json
+
+### Travel 조회
+GET http://localhost:8080/api/travels
+Accept: application/json
+
+### City 추가
+POST http://localhost:8080/api/citys
+Content-Type: application/json
+
+{
+  "name": "부평"
+}
 ### Travel 추가
 POST http://localhost:8080/api/travels
 Content-Type: application/json
@@ -36,6 +67,14 @@ Content-Type: application/json
   "start_date": "2022-11-20T00:00:00.000000",
   "end_date": "2022-11-25T08:00:00.000000"
 }
+### City 업데이트
+PUT http://localhost:8080/api/citys/1
+Content-Type: application/json
+
+{
+  "name": "부산"
+}
+
 ### Travel 업데이트
 PUT http://localhost:8080/api/travels/1
 Content-Type: application/json
@@ -46,6 +85,11 @@ Content-Type: application/json
   "start_date": "2022-12-24T00:00:00.000000",
   "end_date": "2022-12-25T08:00:00.000000"
 }
+
+### City 제거
+DELETE http://localhost:8080/api/citys/1
+Accept: application/json
+
 ### Travel 제거
 DELETE http://localhost:8080/api/travels/1
 Accept: application/json

@@ -19,20 +19,20 @@ class UserHandler(
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).buildAndAwait()
     }
     suspend fun login(req: ServerRequest): ServerResponse {
-        val receivedUser = req.awaitBodyOrNull(LoginDto::class)
-        return receivedUser?.let {
-            println("User: $receivedUser")
+        val receivedUser = req.awaitBodyOrNull(LoginDto::class) ?: return ServerResponse.badRequest().buildAndAwait()
+        val isUser = userService.login(receivedUser)
+        return isUser?.let {
+//            println("Login Dto: $receivedUser")
+//            println("User Dto: $isUser")
+            println("Handler: $it")
             ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValueAndAwait(
-                    userService.login(it)
-//                    LoginDto("미친씨팔", "깨씨발좆같은스프링")
-//                    mapOf("미친씨팔" to "깨씨발좆같은스프링")
-                )
-        } ?: ServerResponse.badRequest().buildAndAwait()
+                .bodyValueAndAwait(it)
+        } ?: ServerResponse.notFound().buildAndAwait()
     }
     suspend fun getAll(req: ServerRequest): ServerResponse {
+        println("Handler: GetALL")
         return ServerResponse
             .ok()
             .contentType(MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ class UserHandler(
             ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValueAndAwait(it.toDto())
+                .bodyValueAndAwait(it)
         } ?: ServerResponse.notFound().buildAndAwait()
     }
 

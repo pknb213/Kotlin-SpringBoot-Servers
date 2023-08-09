@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.User
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.server.SecurityWebFilterChain
+import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository
+import org.springframework.security.web.server.context.WebSessionServerSecurityContextRepository
 
 @Configuration
 @EnableWebFluxSecurity
@@ -21,20 +23,22 @@ class SecurityConfiguration (
     private val userService: UserService
 ) {
     @Bean
-    fun jwtAuthenticationFilter(): JwtTokenFilter {
-        return JwtTokenFilter(jwtService, userService)
+    fun jwtAuthenticationFilter(): JwtFilter {
+        return JwtFilter(jwtService, userService, )
     }
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
-        println("spring security filter chain start")
+        println("> spring security filter chain start")
         return http
+            .httpBasic().disable()
             .csrf().disable()
+            .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
             .authorizeExchange()
-            .pathMatchers("/ping").permitAll()
-            .pathMatchers("/login").permitAll()
+            .pathMatchers("/v1/**").permitAll()
             .anyExchange().authenticated()
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
+            .securityContextRepository(WebSessionServerSecurityContextRepository())
             .build()
     }
 
@@ -43,14 +47,14 @@ class SecurityConfiguration (
         return BCryptPasswordEncoder()
     }
 
-    @Bean
-    fun userDetailsService(): ReactiveUserDetailsService {
-        val user = User.builder()
-            .username("user")
-            .password(passwordEncoder().encode("password"))
-            .roles("USER")
-            .build()
-
-        return MapReactiveUserDetailsService(user)
-    }
+//    @Bean
+//    fun userDetailsService(): ReactiveUserDetailsService {
+//        val user = User.builder()
+//            .username("user")
+//            .password(passwordEncoder().encode("password"))
+//            .roles("USER")
+//            .build()
+//
+//        return MapReactiveUserDetailsService(user)
+//    }
 }
