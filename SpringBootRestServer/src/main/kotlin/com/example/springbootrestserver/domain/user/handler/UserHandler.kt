@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.*
+import org.springframework.web.server.ServerWebExchange
 
 @Component
 class UserHandler(
@@ -19,17 +20,19 @@ class UserHandler(
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).buildAndAwait()
     }
     suspend fun login(req: ServerRequest): ServerResponse {
+        val token = req.headers().header("Authorization").firstOrNull()?.split(" ")?.get(1)
+        println("Token : ${token}")
+//        val exchange = req.exchange().attributes
+//        println("\n>> Exchange: ${exchange["MyTestValue"]}")
         val receivedUser = req.awaitBodyOrNull(LoginDto::class) ?: return ServerResponse.badRequest().buildAndAwait()
+        receivedUser.token = token
         val isUser = userService.login(receivedUser)
-        return isUser?.let {
-//            println("Login Dto: $receivedUser")
-//            println("User Dto: $isUser")
-            println("Handler: $it")
+        return isUser.let {
             ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValueAndAwait(it)
-        } ?: ServerResponse.notFound().buildAndAwait()
+        }
     }
     suspend fun getAll(req: ServerRequest): ServerResponse {
         println("Handler: GetALL")

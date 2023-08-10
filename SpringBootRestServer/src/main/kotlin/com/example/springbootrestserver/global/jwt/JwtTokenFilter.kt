@@ -53,6 +53,10 @@ class JwtFilter (
             SecurityContextHolder.getContext().authentication = authentication
             val securityContextRepository = WebSessionServerSecurityContextRepository()
 
+            """ Test """
+            val myValue = "your_value" // 예시로 어떤 값을 저장한다고 가정
+            exchange.attributes.put("MyTestValue", myValue)
+
             // exchange에 security context를 저장
             return securityContextRepository.save(exchange, securityContext).then(
                 chain.filter(exchange)

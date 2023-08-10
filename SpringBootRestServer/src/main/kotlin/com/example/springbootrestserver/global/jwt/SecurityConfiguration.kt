@@ -18,14 +18,15 @@ import org.springframework.security.web.server.context.WebSessionServerSecurityC
 
 @Configuration
 @EnableWebFluxSecurity
-class SecurityConfiguration (
+class SecurityConfiguration(
     private val jwtService: JwtService,
     private val userService: UserService
 ) {
     @Bean
     fun jwtAuthenticationFilter(): JwtFilter {
-        return JwtFilter(jwtService, userService, )
+        return JwtFilter(jwtService, userService)
     }
+
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         println("> spring security filter chain start")
@@ -35,6 +36,7 @@ class SecurityConfiguration (
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
             .authorizeExchange()
             .pathMatchers("/v1/**").permitAll()
+            .pathMatchers("/admin/**").hasRole("ADMIN")
             .anyExchange().authenticated()
             .and()
             .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)

@@ -19,7 +19,7 @@ Content-Type: application/json
 ### Auth 있음
 POST http://localhost:8080/v1/login
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY4MTAzMTg2MywiZXhwIjoxNjgyMDMxODYzfQ.ni_O88ctNV2xw27rd0uh_kdyog19nQVqrZfxruCd9dU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IGF1dGggbmFtZSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwianRpIjoiMSIsImlhdCI6MTY5MTY0NDQ1NywiZXhwIjoxNjkxNjYyNDU3fQ.EybXfZdGIDWsFuyj0Vh7kBVOMXGj82TU9Hc5RYk4cbQ
 
 {
   "email": "test",

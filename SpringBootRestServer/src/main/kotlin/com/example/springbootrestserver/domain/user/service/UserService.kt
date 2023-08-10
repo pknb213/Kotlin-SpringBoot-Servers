@@ -17,6 +17,7 @@ import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 import java.nio.charset.StandardCharsets
+import kotlin.math.log
 
 @Service
 class UserService(
@@ -37,20 +38,14 @@ class UserService(
         // Todo: 여기에 이제 유저인지 확인하고 일치하면 JWT토큰을 발급하는 로직으로 변경. ex) { success: true, token: "ASdasdsad"}
         // Todo: 그리고 서비스에 대한 Response도 인터페이스를 하나로 일치하는게 좋을 것 같다. 위처럼 {msg: "xxx", success: true, data: []}
         // TOdo: 그러면 Handler도 현재 결과가 없을 때 NotFound 같이 하는 부분을 변경하는게 맞다
-        println("\nLogin API")
+        println("\nLogin API\n  DTO: ${loginDto}")
+        var token = ""
         val user = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password)
         if (user === null) return mapOf("success" to false, "error" to "Invalid Id or Password")
-        val token = jwtService.generateToken(user.id, user.role)
-//        val authMap = jwtService.getAuthentication(newToken)
-//        println("New Token: ${newToken}\nAuth: $authMap")
-//        val claims = Jwts.parser()
-//            .setSigningKey("your-secret-key".toByteArray(StandardCharsets.UTF_8))
-//            .parseClaimsJws(newToken)
-//        println("New Claims: $claims")
-//        jwtService.isValidToken(newToken)
-//        val isValidToken = jwtService.isValidToken(newToken)
-//        println("Valid Token?: $isValidToken")
-        println("Created Token: ${jwtService.getAuthentication(token)}")
+        if (loginDto.token == null || !jwtService.isValidToken(loginDto.token.toString())) { // 토큰 없거나 유효 하지 않을 떄
+            token = jwtService.generateToken(user.id, user.role)
+            println("Created Token: ${jwtService.getAuthentication(token)}")
+        } else token = loginDto.token.toString()
         return mapOf(
             "success" to true,
             "msg" to "${loginDto.email} login success.",

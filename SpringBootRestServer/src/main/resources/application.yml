@@ -74,4 +74,5 @@ spring:
 
 jwt:
   secret-key: your-secret-key
-  expirationTime: 18000
+  expirationTime: 18000000
+#  expirationTime: 18000
