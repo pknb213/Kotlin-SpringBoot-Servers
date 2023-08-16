@@ -42,7 +42,7 @@ class JwtFilter (
             val abc = authorities.map {
                 SimpleGrantedAuthority(it.toString())
             }.toList()
-            println("????? $abc, ${abc.javaClass}, ${abc.get(0)?.javaClass}")
+            println("? $abc, ${abc.javaClass}, ${abc.get(0)?.javaClass}")
 
 //            val user = User(role = UserRole.ROLE_USER, email = "test", password = "1234", verified = true, name = "test")
             val authentication = UsernamePasswordAuthenticationToken(id, null, abc)//listOf(SimpleGrantedAuthority())

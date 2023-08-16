@@ -27,11 +27,6 @@ class Routes (
                 POST("", userHandler::login)
             }
         }
-//        "/v1/kafka/{test-topic}".nest {
-//            accept(MediaType.APPLICATION_JSON).nest {
-//                POST("", kafkaHandler::test)
-//            }
-//        }
     }
     @Bean
     fun userRouter() = coRouter {

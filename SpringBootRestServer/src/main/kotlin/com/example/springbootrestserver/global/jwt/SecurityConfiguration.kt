@@ -4,6 +4,8 @@ import com.example.springbootrestserver.domain.user.service.UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder
 import org.springframework.security.config.web.server.ServerHttpSecurity
@@ -26,7 +28,12 @@ class SecurityConfiguration(
     fun jwtAuthenticationFilter(): JwtFilter {
         return JwtFilter(jwtService, userService)
     }
-
+    @Bean
+    fun roleHierarchy(): RoleHierarchy {
+        val hierarchy = RoleHierarchyImpl()
+        hierarchy.setHierarchy("ROLE_ADMIN > ROLE_USER > ROLE_CLIENT") // ADMIN은 USER의 상위 역할
+        return hierarchy
+    }
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         println("> spring security filter chain start")
@@ -36,10 +43,10 @@ class SecurityConfiguration(
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
             .authorizeExchange()
             .pathMatchers("/v1/**").permitAll()
-            .pathMatchers("/admin/**").hasRole("ADMIN")
+            .pathMatchers("/api/**").hasRole("ROLE_USER")
             .anyExchange().authenticated()
             .and()
-            .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
+//            .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
             .securityContextRepository(WebSessionServerSecurityContextRepository())
             .build()
     }
