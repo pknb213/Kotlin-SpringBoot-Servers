@@ -1,0 +1,68 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "service_id":"service_pack_1",
+    "member_id":"user1",
+    "name":"유저1",
+    "deductionCount":1,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"화면수집 기술지원 만약 글자가 계속 길어지면 말줄임표를 표시해주세요오오오오오오오오오오오오오오오오오오오오오오오오오오오오오오오오오",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "service_id":"service_pack_2",
+    "member_id":"user2",
+    "name":"유저2",
+    "deductionCount":2,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"기술지원",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "service_id":"service_pack_2",
+    "member_id":"user2",
+    "name":"유저2",
+    "deductionCount":2,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"기술지원",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "service_id":"service_pack_2",
+    "member_id":"user2",
+    "name":"유저2",
+    "deductionCount":2,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"기술지원",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "service_id":"service_pack_2",
+    "member_id":"user2",
+    "name":"유저2",
+    "deductionCount":2,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"기술지원",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "service_id":"service_pack_2",
+    "member_id":"user2",
+    "name":"유저2",
+    "deductionCount":2,
+    "residualCount":5,
+    "payment_amount":100000,
+    "contents":"기술지원",
+    "use_date":{"$date":"2020-01-01T12:00:00Z"}
+  }
+]

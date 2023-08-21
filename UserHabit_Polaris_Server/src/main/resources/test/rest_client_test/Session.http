@@ -1,0 +1,74 @@
+###
+GET {{host}}/session/2_187c43ad3e07413395e622d2a0cfc49c
+?from_date={{from_date}}
+&to_date={{to_date}}
+&app_id_list={{app_id_list}}
+&session_id_list={{session_id_list}}
+&crash_id_list=1861767913
+&limit=1
+&is_crash=true
+&device_name=
+&os_version=
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/session/*/count
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&by=session
+&is_crash=true
+&duration=day
+&type=day
+&crash_id_list={{crash_id_list}}
+&field_list=crash_count
+&os_version=9
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/session/*/rank
+?app_id_list=e6c101f020e1018b5ba17cdbe32ade2d679b44bc
+&from_date={{from_date}}
+&to_date={{to_date}}
+&view_id_list=1653892474
+# &version_list=
+# &by=
+&type=termination
+&is_crash=false
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+
+###
+POST {{host}}/session_event
+content-type: text/plain
+# Authorization: Bearer {{jwt}}
+
+[{
+	"ak": "e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+	"av": "1.0.1",
+	"usv": 20210205,
+	"ab": 4,
+	"dc": "G5 5590 (Dell Inc.)",
+	"db": "G5 5590 (Dell Inc.)",
+	"di": "48ef39ac23132cb329db7d3a20a58199ea93f1e5",
+	"dm": "G5 5590 (Dell Inc.)",
+	"dn": "G5 5590 (Dell Inc.)",
+	"dw": 1920,
+	"dh": 1080,
+	"dd": 192,
+	"dov": 10,
+	"dl": "ko_KR",
+	"dz": "",
+	"do": 213,
+	"si": "0acf74e6a1c84c8fba3020a427c47092",
+	"st": 1621845037996950,
+	"se": 138,
+	"sn": 2,
+	"u": "test01",
+	"e": [
+		{"t":8801,"ts":8968,"vi":"###SESSION_START###"}
+	]
+}]

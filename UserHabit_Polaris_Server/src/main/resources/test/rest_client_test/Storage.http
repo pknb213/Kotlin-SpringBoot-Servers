@@ -1,0 +1,42 @@
+@meta = [{"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"com.lcyer.sample.scroll.ui.MainActivity::MainActivity2222","av":"1.2.7","oi":"objectId_1"}, {"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"viewId_2222","av":"1.2.7","oi":"objectId_2"}]
+@file_0 = android.png
+@file_1 = html5.png
+
+###
+GET {{host}}/storage
+?ai=dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168
+&av=1.2.7
+# content-type: application/json
+# Authorization: Bearer {{jwt}}
+
+###
+POST {{host}}/storage
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="meta"
+
+{{meta}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_0"; filename="{{file_0}}"
+Content-Type: image/png
+
+< ./attach/{{file_0}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_1"; filename="{{file_1}}"
+Content-Type: image/png
+
+< ./attach/{{file_1}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+PUT {{host}}/storage
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="meta"
+
+{{meta}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

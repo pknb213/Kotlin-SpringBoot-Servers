@@ -1,0 +1,178 @@
+[
+  {
+    "_id":{"$oid": "000000000000000000000001"},
+    "name": "유저해빗 회사이름1",
+    "app_id":[{"$oid": "000000000000000000000001"}, {"$oid": "000000000000000000000002"}],
+    "member_id":["test01@userhabit.io", "system.rwud@userhabit.io","system._wud@userhabit.io", "system.r_ud@userhabit.io", "system.rw_d@userhabit.io", "system.rwu_@userhabit.io", "administrator.rwud@userhabit.io", "administrator._wud@userhabit.io", "administrator.r_ud@userhabit.io", "administrator.rw_d@userhabit.io", "administrator.rwu_@userhabit.io", "member.rwud@userhabit.io", "member._wud@userhabit.io", "member.r_ud@userhabit.io", "member.rw_d@userhabit.io", "member.rw_d@userhabit.io", "member.rwu_@userhabit.io"  ],
+    "manager_id":"test01@userhabit.io",
+
+    "payment_type": "통장",
+    "payment_status": "결제완료",
+    "payment_date": {"$date": "2021-03-11T12:00:00Z"},
+
+    "plan_name":"엔터프라이즈",
+    "plan_status": "사용중",
+    "plan_type": "연간",
+    "price": {"$numberLong": "5000000"},
+    "price_off": {"$numberLong": "500000"},
+    "days": 365,
+    "app_limit": 0,
+    "member_limit":0,
+    "session_limit":{"$numberLong": "-1"},
+    "csv_limit": {"$numberLong": "-1"},
+    "raw_limit":{"$numberLong": "-1"},
+    "url_day":30,
+    "storage_month": 36,
+    "withdraw_msg": "해지 사유",
+
+    "consulting": true,
+    "manager": true,
+    "support_init": "온/오프라인",
+    "support_tech": "온/오프라인",
+
+    "plan_begin_date": {"$date": "2021-03-01T12:00:00Z"},
+    "plan_end_date": {"$date": "2022-03-01T12:00:00Z"},
+
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"},
+
+    "plan_request":{
+      "plan_name":"엔터프라이즈",
+      "plan_status": "변경신청",
+      "plan_type": "연간",
+      "price": {"$numberLong": "5000000"},
+      "price_off": {"$numberLong": "500000"},
+      "days": 365,
+      "app_limit": 0,
+      "member_limit":0,
+      "session_limit":{"$numberLong": "-1"},
+      "csv_limit": {"$numberLong": "-1"},
+      "raw_limit":{"$numberLong": "-1"},
+      "url_limit":30,
+      "storage_month": 36,
+      "withdraw_msg": "해지 사유",
+
+      "consulting": true,
+      "manager": true,
+      "support_init": "온/오프라인",
+      "support_tech": "온/오프라인",
+
+      "created_date": {"$date": "2021-05-01T12:00:00Z"},
+      "plan_begin_date": {"$date": "2021-03-11T12:00:00Z"},
+      "plan_end_date": {"$date": "2021-03-11T12:00:00Z"}
+    }
+  },
+  {
+    "_id":{"$oid": "000000000000000000000002"},
+    "name": "유저해빗 회사이름2",
+    "app_id":[{"$oid": "000000000000000000000001"}],
+    "member_id":["user1", "user2"],
+    "manager_id":"test01@userhabit.io",
+
+    "payment_type": "통장",
+    "payment_status": "결제완료",
+    "payment_date": {"$date": "2021-03-11T12:00:00Z"},
+
+    "plan_name":"비즈니스 프로",
+    "plan_status": "사용중",
+    "plan_type": "년간",
+    "price": {"$numberLong": "6000000"},
+    "price_off": {"$numberLong": "1000000"},
+    "days": 365,
+    "app_limit": 5,
+    "member_limit":10,
+    "session_limit":{"$numberLong": "250000"},
+    "csv_limit": {"$numberLong": "100"},
+    "raw_limit":{"$numberLong": "100"},
+    "url_day": 14,
+    "storage_month": 12,
+    "withdraw_msg": "해지 사유",
+
+    "consulting": false,
+    "manager": false,
+    "support_init": "온라인",
+    "support_tech": "온라인",
+
+    "plan_begin_date": {"$date": "2021-03-11T12:00:00Z"},
+    "plan_end_date": {"$date": "2021-03-11T12:00:00Z"},
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"},
+
+    "plan_request":null
+  },
+  {
+    "_id":{"$oid": "000000000000000000000003"},
+    "name": "유저해빗 회사이름3",
+    "app_id":[{"$oid": "000000000000000000000001"}],
+    "member_id":["user1", "user2"],
+    "manager_id":"test01@userhabit.io",
+
+    "payment_type": "통장",
+    "payment_status": "결제완료",
+    "payment_date": {"$date": "2021-03-11T12:00:00Z"},
+
+    "plan_name":"스탠다드",
+    "plan_status": "사용중",
+    "plan_type": "년간",
+    "price": {"$numberLong": "6000000"},
+    "price_off": {"$numberLong": "1000000"},
+    "days": 365,
+    "app_limit": 2,
+    "member_limit": 5,
+    "session_limit": {"$numberLong": "50000"},
+    "csv_limit": {"$numberLong": "30"},
+    "raw_limit": {"$numberLong": "30"},
+    "url_day": 7,
+    "storage_month": 6,
+    "withdraw_msg": "해지 사유",
+
+    "consulting": false,
+    "manager": false,
+    "support_init": "온라인",
+    "support_tech": "온라인",
+
+    "plan_begin_date": {"$date": "2021-03-11T12:00:00Z"},
+    "plan_end_date": {"$date": "2021-03-11T12:00:00Z"},
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"},
+
+    "plan_request":null
+  },
+  {
+    "_id":{"$oid": "000000000000000000000004"},
+    "name": "유저해빗 회사이름4",
+    "app_id":[{"$oid": "000000000000000000000001"}],
+    "member_id":["user1", "user2"],
+    "manager_id":"test01@userhabit.io",
+
+    "payment_type": "통장",
+    "payment_status": "결제완료",
+    "payment_date": {"$date": "2021-03-11T12:00:00Z"},
+
+    "plan_name":"무료",
+    "plan_status": "사용중",
+    "plan_type": "년간",
+    "price": {"$numberLong": "0"},
+    "price_off": {"$numberLong": "0"},
+    "days": 14,
+    "app_limit": 1,
+    "member_limit": 2,
+    "session_limit": {"$numberLong": "10000"},
+    "csv_limit": {"$numberLong": "30"},
+    "raw_limit": {"$numberLong": "30"},
+    "url_day": 7,
+    "storage_month": 6,
+
+    "consulting": false,
+    "manager": false,
+    "support_init": "온라인",
+    "support_tech": "온라인",
+
+    "plan_begin_date": {"$date": "2021-03-11T12:00:00Z"},
+    "plan_end_date": {"$date": "2021-03-11T12:00:00Z"},
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"},
+
+    "plan_request":null
+  }
+]

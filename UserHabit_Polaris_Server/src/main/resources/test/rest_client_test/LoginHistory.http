@@ -1,0 +1,4 @@
+###
+GET {{host}}
+# content-type: application/json
+Authorization: Bearer {{jwt}}

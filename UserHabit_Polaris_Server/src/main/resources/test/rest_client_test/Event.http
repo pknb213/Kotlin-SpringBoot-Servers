@@ -1,0 +1,34 @@
+###
+GET {{host}}/event/*/csv
+?field_list=
+&session_id_list=
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/event/*/count
+?from_date={{from_date}}
+&to_date={{to_date}}
+&version_list=
+&by=all
+&type=swipe_direction
+&sort_key=value
+&sort_value=-1
+&skip=0
+&limit=1
+&duration=day
+&type=all
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/event/*/rank
+?app_id_list=2441
+&from_date={{from_date}}
+&to_date={{to_date}}
+&view_id_list=-812260309
+# &by=
+# &version_list=
+# &type=all
+# content-type: application/json
+Authorization: Bearer {{jwt}}

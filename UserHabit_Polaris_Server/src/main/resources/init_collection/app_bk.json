@@ -1,0 +1,137 @@
+[
+  {
+    "_id": {"$oid": "000000000000000000000001"},
+    "admin": "test01@userhabit.io",
+    "app_key": "e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+    "company_id": "company_name_1",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "plan_id": "enterprise",
+    "platform": "ios",
+    "session_count": 3000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["test01@userhabit.io", "test011@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000002"},
+    "app_key": "e6c101f020e1018b5ba17cdbe32ade2d679b44bc_2",
+    "company_id": "company_name_2",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "plan_id": "enterprise",
+    "platform": "ios",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["test01@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000003"},
+    "app_key": "e6c101f020e1018b5ba17cdbe32ade2d679b44bc_4",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "time_zone": "Asia/Seoul",
+    "user_id": ["test02@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000004"},
+    "app_key": "b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "time_zone": "Asia/Seoul",
+    "user_id": ["sdk@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000005"},
+    "app_key": "dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "time_zone": "Asia/Seoul",
+    "user_id": ["sdk@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000006"},
+    "app_key": "38cace7b82cf0662e3dbbf9fc7995091bde4db27",
+    "created_date": {"$date": "2020-01-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2020-01-31T12:00:00.000Z"},
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cjh@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000007"},
+    "app_key": "38cace7b82cf0662e3dbbf9fc7995091bde4db27dkanklv",
+    "created_date": {"$date": "2020-12-01T12:00:00.000Z"},
+    "expiry_date": {"$date": "2021-12-31T12:00:00.000Z"},
+    "time_zone": "Asia/Seoul",
+    "user_id": ["jjaeun2@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000008"},
+    "admin": "cyj01@userhabit.io",
+    "app_key": "1",
+    "company_id": "YJ",
+    "created_date": {"$date": "2021-08-01T00:00:00.000Z"},
+    "expiry_date": {"$date": "2021-08-05T00:00:00.000Z"},
+    "plan_id": "business",
+    "platform": "android",
+    "session_count": 5000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cyj01@userhabit.io", "cyj02@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000009"},
+    "admin": "cyj02@userhabit.io",
+    "app_key": "2",
+    "company_id": "YJ",
+    "created_date": {"$date": "2021-08-01T00:00:00.000Z"},
+    "expiry_date": {"$date": "2021-08-05T00:00:00.000Z"},
+    "plan_id": "business",
+    "platform": "android",
+    "session_count": 5000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cyj02@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000010"},
+    "admin": "cyj01@userhabit.io",
+    "app_key": "3",
+    "company_id": "YJ",
+    "created_date": {"$date": "2021-08-01T00:00:00.000Z"},
+    "expiry_date": {"$date": "2021-08-05T00:00:00.000Z"},
+    "plan_id": "business",
+    "platform": "android",
+    "session_count": 5000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cyj01@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000011"},
+    "admin": "cyj01@userhabit.io",
+    "app_key": "4",
+    "company_id": "YJ",
+    "created_date": {"$date": "2021-08-01T00:00:00.000Z"},
+    "expiry_date": {"$date": "2021-08-05T00:00:00.000Z"},
+    "plan_id": "business",
+    "platform": "android",
+    "session_count": 5000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cyj01@userhabit.io", "cyj02@userhabit.io"]
+  },
+  {
+    "_id": {"$oid": "000000000000000000000012"},
+    "admin": "cyj02@userhabit.io",
+    "app_key": "5",
+    "company_id": "YJ",
+    "created_date": {"$date": "2021-08-01T00:00:00.000Z"},
+    "expiry_date": {"$date": "2021-08-05T00:00:00.000Z"},
+    "plan_id": "business",
+    "platform": "android",
+    "session_count": 5000,
+    "store_id": "io.userhabit.app",
+    "time_zone": "Asia/Seoul",
+    "user_id": ["cyj02@userhabit.io"]
+  }
+]

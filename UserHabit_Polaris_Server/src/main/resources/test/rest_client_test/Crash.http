@@ -1,0 +1,14 @@
+###
+GET {{host}}/crash/308655522
+?from_date={{from_date}}
+&to_date={{to_date}}
+&app_id_list={{app_id_list}}
+&version_list=
+&os_version=
+&duration=day
+&by=stack_trace
+&crash_id_list=308655522
+&limit=1
+&device_name=samsung+SM-G950N
+# content-type: application/json
+Authorization: Bearer {{jwt}}

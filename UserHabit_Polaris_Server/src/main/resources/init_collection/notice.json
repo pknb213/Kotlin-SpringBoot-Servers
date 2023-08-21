@@ -1,0 +1,52 @@
+[
+  {
+    "_id":{"$oid": "000000000000000000000001"},
+    "writer_email" : "help@userhabit.io",
+    "title" : "안녕하세요 공지사항 제목입니다.",
+    "content" : "안녕하세요 공지사항 본문입니다.",
+    "read_count" : 10,
+    "is_popup" : false,
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000002"},
+    "writer_email" : "help@userhabit.io",
+    "title" : "안녕하세요 공지사항 제목입니다.",
+    "content" : "안녕하세요 공지사항 본문입니다.",
+    "read_count" : 10,
+    "is_popup" : false,
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000003"},
+    "writer_email" : "help@userhabit.io",
+    "title" : "안녕하세요 공지사항 제목입니다.",
+    "content" : "안녕하세요 공지사항 본문입니다.",
+    "read_count" : 10,
+    "is_popup" : false,
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000004"},
+    "writer_email" : "help@userhabit.io",
+    "title" : "안녕하세요 공지사항 제목입니다.",
+    "content" : "안녕하세요 공지사항 본문입니다.",
+    "read_count" : 10,
+    "is_popup" : false,
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000005"},
+    "writer_email" : "help@userhabit.io",
+    "title" : "안녕하세요 공지사항 제목입니다.",
+    "content" : "안녕하세요 공지사항 본문입니다.",
+    "read_count" : 10,
+    "is_popup" : false,
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  }
+]

@@ -1,0 +1,11 @@
+###
+GET {{host}}/heatmap/*/count
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&version_list=
+&view_id_list=1689935380
+&type=tap
+&by=reach_rate
+# content-type: application/json
+Authorization: Bearer {{jwt}}

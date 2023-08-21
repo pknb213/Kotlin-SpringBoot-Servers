@@ -1,0 +1,253 @@
+### Event
+GET {{localhost}}/v3/event/*?search_expr={"_id.si": "d2140222630c688ce1a3e14694cfe7e5c84aa29f"}
+Authorization: Bearer {{jwt}}
+
+### Event Rank
+GET {{localhost}}/v3/event/*/rank?from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+
+### DwellTIme Rank
+GET {{localhost}}/v3/dwell_time/*/rank?from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+
+### Heatmap Count
+GET {{localhost}}/v3/heatmap/*/count?type=first_tap&from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T00:00:00Z&view_id_list=
+Authorization: Bearer {{jwt}}
+
+### Replay
+GET {{localhost}}/v3/replay/*?from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T00:00:00Z&search_expr={}&app_id_list=000000000000000000000004
+Authorization: Bearer {{jwt}}
+
+### GET App
+GET {{localhost}}/v3/app/e6c101f020e1018b5ba17cdbe32ade2d679b44bc,e6c101f020e1018b5ba17cdbe32ade2d679b44bc_2/config
+Authorization: Bearer {{jwt}}
+
+### POST App
+POST {{localhost}}/v3/app/e6c101f020e1018b5ba17cdbe32ade2d679b44bc/config
+Authorization: Bearer {{jwt}}
+content-type: text/plain
+
+[{"ph": "010-1234-1234", "a": 2}]
+
+### Session Rank
+GET {{localhost}}/v3/session/*/rank?from_date=2021-01-01T00:00:00Z&to_date=2022-12-31T23:59:59Z&remove_session_start_end_view=true
+Authorization: Bearer {{jwt}}
+### View Rank
+GET {{localhost}}/v3/view/*/rank?from_date=2022-01-01T00:00:00Z&to_date=2022-04-01T23:59:59Z&limit=10
+Authorization: Bearer {{jwt}}
+
+### Session Count
+GET {{saas}}/v3/session/*/count?from_date=2022-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+### View
+GET {{localhost}}/v3/view/*?from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T23:59:59Z&sort_field=view_id&sort_value=1
+Authorization: Bearer {{jwt}}
+
+### Test Heat Batch Past
+GET {{localhost}}/v3/heatmap/*?from_date=2021-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+### Test API
+GET {{localhost}}/v3/test
+Authorization: Bearer {{jwt}}
+
+### POST Bookmark
+POST {{localhost}}/v3/bookmark
+content-type: text/plain
+
+[{
+    "id": "com.hdsec.android.mainlib.SmartActivityZZ9301P4",
+    "params": "3.6.1",
+    "target": "view"
+}]
+
+### DELETE Comment Test
+DELETE {{localhost}}/v3/app
+Authorization: Bearer {{jwt}}
+
+[{
+    "_id": "6194bbf1c7b44b662a748e8e"
+}]
+
+### All flow
+GET {{localhost}}/v3/flow/74180013,-1020631576?from_date=2022-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+### All flow
+GET {{localhost}}/v3/flow/?from_date=2022-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+### 즐겨찾기 개발: Target Flow
+GET {{localhost}}/v3/flow/*?type=target&from_view_id=74180013&to_view_id=74180013&from_date=2022-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+### 즐겨찾기 개발: Target Flow 다른 vhi
+GET {{localhost}}/v3/flow/*?type=target&from_view_id=74180013&to_view_id=306589677&from_date=2022-01-01T00:00:00Z&to_date=2022-12-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+
+### 즐겨찾기 개발: Storage
+GET {{saas}}/v3/storage/*?ai=b3068e50a8afca37a2909990f9b8c0f7efbe2168&av=1.0.1
+Authorization: Bearer {{jwt}}
+### 즐겨찾기 개발: Storage 로컬
+GET {{localhost}}/v3/storage/*?ai=b3068e50a8afca37a2909990f9b8c0f7efbe2168&av=1.0.1
+Authorization: Bearer {{jwt}}
+
+### 즐겨찾기 개발: View Test Batch
+GET {{localhost}}/v3/viewlist
+Authorization: Bearer {{jwt}}
+
+### 즐겨찾기 개발: Favorite GET
+GET {{localhost}}/v3/bookmark?email=test01@userhabit.io&type=target
+Authorization: Bearer {{jwt}}
+###
+POST {{localhost}}/v3/bookmark
+Authorization: Bearer {{jwt}}
+content-type: text/plain
+
+[{
+    "type": "target",
+    "uid": "2134,109283902"
+}]
+### Alias
+POST {{localhost}}/v3/alias
+Authorization: Bearer {{jwt}}
+content-type: text/plain
+
+[{
+    "app_id_list": "000000000000000000000004",
+    "version_list": "1.0.1",
+    "vhi": 1045769909,
+    "alias": "Alias test"
+}]
+
+###
+GET {{localhost}}/v3/app/*?from_date=2022-01-27T00%3A00%3A00Z&to_date=2022-02-10T00%3A00%3A00Z&by=device&is_crash=false&duration=day
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6InNka0B1c2VyaGFiaXQuaW8iLCJpYXQiOjE2NDQ4NTkwNDksImV4cCI6MTY0NzQ1MTA0OSwiYWlsIjpbImU2YzEwMWYwMjBlMTAxOGI1YmExN2NkYmUzMmFkZTJkNjc5YjQ0YmNfNCIsImIzMDY4ZTUwYThhZmNhMzdhMjkwOTk5MGY5YjhjMGY3ZWZiZTIxNjgiLCJkZXZfYjMwNjhlNTBhOGFmY2EzN2EyOTA5OTkwZjliOGMwZjdlZmJlMjE2OCIsIjM4Y2FjZTdiODJjZjA2NjJlM2RiYmY5ZmM3OTk1MDkxYmRlNGRiMjciLCIzOGNhY2U3YjgyY2YwNjYyZTNkYmJmOWZjNzk5NTA5MWJkZTRkYjI3ZGthbmtsdiIsIjYyMDM1Y2Q3MDhiZGYwNDUwZDA4ZDM4ZiJdLCJsdmwiOjc5LCJjaWQiOiIwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDMifQ.YdrVVIheyHMKJzFCg1z78zp5I1JJ5iJ47MVZp9IHEiI
+###
+POST {{localhost}}/v3/app/62035cd708bdf0450d08d38f/config
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6InNka0B1c2VyaGFiaXQuaW8iLCJpYXQiOjE2NDQzNjkzMDgsImV4cCI6MTY0Njk2MTMwOCwiYWlsIjpbImU2YzEwMWYwMjBlMTAxOGI1YmExN2NkYmUzMmFkZTJkNjc5YjQ0YmNfNCIsImRldl9iMzA2OGU1MGE4YWZjYTM3YTI5MDk5OTBmOWI4YzBmN2VmYmUyMTY4IiwiYjMwNjhlNTBhOGFmY2EzN2EyOTA5OTkwZjliOGMwZjdlZmJlMjE2OCIsIjM4Y2FjZTdiODJjZjA2NjJlM2RiYmY5ZmM3OTk1MDkxYmRlNGRiMjciLCIzOGNhY2U3YjgyY2YwNjYyZTNkYmJmOWZjNzk5NTA5MWJkZTRkYjI3ZGthbmtsdiJdLCJsdmwiOjI1NSwiY2lkIjoiMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzIn0.dniBMPhHD8XlBjf34ahu0Bj6FgWwoHs0aMDvXIEkxy8
+content-type: text/plain
+
+[{
+    "test": 1
+}]
+### test01@userhabit.io
+GET {{localhost}}/v3/app/*
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6InJlYWxUZXN0QHVzZXJoYWJpdC5pbyIsImlhdCI6MTY0NTAzMzg2NiwiZXhwIjoxNjQ3NjI1ODY2LCJhaWwiOlsiZTZjMTAxZjAyMGUxMDE4YjViYTE3Y2RiZTMyYWRlMmQ2NzliNDRiY180IiwiYjMwNjhlNTBhOGFmY2EzN2EyOTA5OTkwZjliOGMwZjdlZmJlMjE2OCIsImRldl9iMzA2OGU1MGE4YWZjYTM3YTI5MDk5OTBmOWI4YzBmN2VmYmUyMTY4IiwiMzhjYWNlN2I4MmNmMDY2MmUzZGJiZjlmYzc5OTUwOTFiZGU0ZGIyNyIsIjM4Y2FjZTdiODJjZjA2NjJlM2RiYmY5ZmM3OTk1MDkxYmRlNGRiMjdka2Fua2x2IiwiNjIwY2FkZjRmOGMzY2M2ZGY4NDc4ZDA5Il0sImx2bCI6NzksImNpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMyJ9.safQzzsx8TpAIht5W9cZjWedSqY4B6A1h72TVgr__ZM
+
+###
+POST {{localhost}}/v3/app
+Authorization: "{{jwt}}"
+content-type: text/plain
+
+[{"id": "6194bbf1c7b44b662a748e8e",
+"time_zone": "Asia/Seoul",
+"name": "영조쓰",
+"platform": "ios",
+"admin_id": "test01@userhabit.io"}]
+###
+POST {{localhost}}/v3/member
+Authorization: {{jwt}}
+content-type: text/plain
+
+[{email: realTest@userhabit.io,
+password: abcd1234,
+name: King}]
+
+### Login Test
+POST {{localhost}}/v3/member/login
+content-type: application/json
+
+{
+  "email":"sdk@userhabit.io",
+  "password":"abcd1234"
+}
+
+### Test
+GET {{localhost}}/v3/test?from_date=2022-02-26T07:10:00Z&to_date=2022-02-26T07:20:00Z
+Authorization: Bearer {{jwt}}
+
+###
+# curl -X POST -H "Content-Type: text/plain" http://localhost:8099/v3/session_event -d "[{\"ak\":\"b3068e50a8afca37a2909990f9b8c0f7efbe2168\", \"av\":\"1.0.1\", \"usv\":20220101, \"dc\":\"heroltelgt\", \"db\":\"universal8890\", \"di\":\"2363853467caf5d1236c2e9dde6fc80e0dacc9a0\", \"dm\":\"universal8890 SM-G930L\", \"dn\":\"universal8890 SM-G930L\", \"dd\":480, \"dw\":1080, \"dh\":2064, \"dov\":\"8.0.0\", \"dl\":\"ko_KR\", \"dz\":\"Asia/Seoul\", \"do\":101, \"si\":\"15251ad3cdedd9c3d2b19ed67787f2ca3859ee9\", \"st\":72553154, \"se\":2, \"sn\":20,\"e\": [{\"t\":8801,\"ts\":55527885,\"vi\":\"###SESSION_START###\"}]}]"
+POST {{localhost}}/v3/session_event
+
+[{
+    "ak":"b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+    "av":"0.0.12",
+    "usv":20220101,
+    "dc":"userhabit",
+    "db":"universal8890",
+    "di":"2363853467caf5d1236c2e9dde6fc80e0dacc9a0",
+    "dm":"universal8890 SM-G930L",
+    "dn":"universal8890 SM-G930L",
+    "dd":480,
+    "dw":1080,
+    "dh":2064,
+    "dov":"0.0.2",
+    "dl":"ko_KR",
+    "dz":"Asia/Seoul",
+    "do":101,
+    "si":"{{$uuid}}",
+    "st":{{$timestamp}}000,
+    "se":2,
+    "sn":20,
+    "e": [
+        {"t":8801,"ts":55527885,"vi":"###SESSION_START###"},
+        {"t":2101, "ts":55528400, "vhi":0, "uts":1000, "ofvhi":0,"odk":"Test Key", "odv": "setcontent test", "ci": 0 }
+    ]
+}]
+###
+#    "e": [
+#        {"t":8801,"ts":55527885,"vi":"###SESSION_START###"},
+#        {"t":4101,"ts":55528000,"vi":"(MainActitity).YJ_TEST", "vw": 1900, "vh": 1200},
+#        {"t":1001,"ts":55528500,"vi":"Tap","gx":400 ,"gy":300 },
+#        {"t":8801,"ts":55540000,"vi":"###SESSION_END###"}
+#    ]
+
+### Reach Rate
+GET {{localhost}}/v3/heatmap/*/count?from_date=2022-01-01T07:10:00Z&to_date=2022-03-31T07:20:00Z&by=scroll_view
+Authorization: Bearer {{jwt}}
+
+### Object
+GET {{localhost}}/v3/object/*
+Authorization: Bearer {{jwt}}
+
+### Object
+GET {{localhost}}/v3/object/*/count?view_hash_id=-1440253318&from_date=2022-01-01T00:00:00Z&to_date=2022-03-31T00:00:00Z
+Authorization: Bearer {{jwt}}
+
+###
+GET {{localhost}}/v3/test
+Authorization: Bearer {{jwt}}
+
+### Geolite
+GET {{localhost}}/v3/geo
+Authorization: Bearer {{jwt}}
+
+### 파일 전송
+POST {{localhost}}/v3/geo
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="field-name"; filename="GeoLite2-Country-Locations-en.csv"
+
+< /Users/cyj/Downloads/GeoLite2-Country-CSV_20220315/GeoLite2-Country-Locations-en.csv
+--WebAppBoundary--
+
+#> {%
+#client.test("Request executed successfully", function() {
+#  client.assert(response.status === 200, "Response status is not 200");
+#});
+#%}
+
+### Member GET
+GET {{localhost}}/v3/member/*?by=date&date=2021-05-01T12:00:00Z&duration=hour
+Authorization: Bearer: {{jwt}}
+
+### session count of device id
+GET {{localhost}}/v3/session/count/of-device-id?from_date=2022-01-01T07:10:00Z&to_date=2022-03-31T07:20:00Z
+Authorization: Bearer {{jwt}}
+
+### Crash
+GET {{localhost}}/v3/crash/000000000000000000000004?from_date=2022-03-09T00%3A00%3A00Z&to_date=2022-03-23T00%3A00%3A00Z&version_list=&device_name=&os_version=&by=stack_trace&limit=99
+Authorization: Bearer {{jwt}}
+
+### Session Rank Error
+GET {{localhost}}/v3/session/*/rank?from_date=2022-03-09T00%3A00%3A00Z&to_date=2022-03-23T00%3A00%3A00Z&view_id_list=
+Authorization: Bearer {{jwt}}

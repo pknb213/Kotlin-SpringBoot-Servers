@@ -1,0 +1,9 @@
+/target/
+/.gradle/
+/build/
+.idea/*
+/out/
+.DS_Store
+*.sh
+
+src/main/resources/rest_test/http-client.env.json

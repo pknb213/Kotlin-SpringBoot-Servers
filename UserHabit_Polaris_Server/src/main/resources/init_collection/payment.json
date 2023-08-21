@@ -1,0 +1,26 @@
+[
+  {
+    "_id":"cash",
+    "name":"현금",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":"hana_card",
+    "name":"하나은행 신용카드",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":"credit_card",
+    "name":"신용카드",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":"naver_pay",
+    "name":"네이버 페이",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  }
+]

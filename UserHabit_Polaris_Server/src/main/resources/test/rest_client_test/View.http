@@ -1,0 +1,31 @@
+###
+GET {{host}}/view/*
+?app_id_list=2441
+&version_list=
+&skip=
+&limit=
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/view/*/rank
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&view_id_list=704415519
+# &version_list=
+# &by=new
+# &type=
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/view/*/count
+?by=session
+&duration=day
+&from_date={{from_date}}
+&to_date={{to_date}}
+&is_unique=false
+&version_list=3.5.8,3.4.8,3.5.2,3.5.3,3.5.1,3.5.4,3.4.7,3.6.1,3.5.5
+# content-type: application/json
+Authorization: Bearer {{jwt}}

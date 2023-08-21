@@ -1,0 +1,17 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "type":100,
+    "member_id":"test01@userhabit.io",
+    "user_name":"테스트 공일",
+    "email":"test01@userhabit.io",
+    "phone_num":"010-1111-1111",
+    "title":"dolor ducimus ea eos eveniet fugiat harum",
+    "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, debitis deleniti ",
+    "view_count":0,
+    "like_count":0,
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"},
+    "expiry_date": null
+  }
+]

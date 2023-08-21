@@ -1,0 +1,32 @@
+###
+GET {{host}}/flow/*
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&version_list=
+&view_id=-1815512336
+&from_view_id=74180013
+&to_view_id=-1671032428
+&by=
+&type=target
+&sort_key=
+&sort_value=
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/flow/*/count
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&version_list=
+&view_hash_id=1689935380
+&after_view_hash_id=740944206
+&by=
+&type=repeat
+&sort_key=
+&sort_value=
+&search_list_start=
+&search_list_end=
+# content-type: application/json
+Authorization: Bearer {{jwt}}

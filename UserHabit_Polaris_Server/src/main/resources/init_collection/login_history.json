@@ -1,0 +1,8 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "member_id":"test01@userhabit.io",
+    "ip":"172.123.123.123",
+    "created_date":{"$date":"2020-01-01T12:00:00Z"}
+  }
+]

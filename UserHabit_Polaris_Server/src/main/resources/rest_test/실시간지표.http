@@ -1,0 +1,67 @@
+### 로그인 (토큰용)
+POST {{localhost}}/v3/member/login
+#POST {{aws}}/v3/member/login
+content-type: application/json
+
+{
+  "id":"test01@userhabit.io",
+  "password":"abcd1234"
+}
+
+### 세션 수 (어제 하루 동안 방문 수)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-30T00:00:00Z&to_date=2021-09-30T23:59:59Z&by=session&duration=day
+#GET {{aws}}/v3/session/*/count
+Authorization: Bearer {{jwt}}
+
+### 세션 수 (이전 7일 동안)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-23T00:00:00Z&to_date=2021-10-30T23:59:59Z&by=session&duration=day
+#GET {{aws}}/v3/session/*/count
+Authorization: Bearer {{jwt}}
+
+### 세션 수 (이전 28일 동안)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-03T00:00:00Z&to_date=2021-10-30T23:59:59Z&by=session&duration=day
+#GET {{aws}}/v3/session/*/count
+Authorization: Bearer {{jwt}}
+
+### TEST 유저 정보 겟
+GET {{localhost}}/v3/member/*?from_date=2021-09-03T00:00:00Z&to_date=2021-10-30T23:59:59Z
+Authorization: Bearer {{jwt}}
+
+### 사용자 수 (어제)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-30T00:00:00Z&to_date=2021-09-30T23:59:59Z&duration=day&by=accumulated
+Authorization: Bearer {{jwt}}
+
+### 사용자 수 (이전 7일)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-23T00:00:00Z&to_date=2021-09-30T23:59:59Z&duration=day&by=accumulated
+Authorization: Bearer {{jwt}}
+
+### 사용자 수 (이전 28일)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-02T00:00:00Z&to_date=2021-09-30T23:59:59Z&duration=day&by=accumulated
+Authorization: Bearer {{jwt}}
+
+### 신규 사용자 수 (어제 하루)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-30T00:00:00Z&to_date=2021-10-01T23:59:59Z&duration=day&by=new
+Authorization: Bearer {{jwt}}
+
+### 신규 사용자 수 (이전 7일)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-23T00:00:00Z&to_date=2021-10-02T23:59:59Z&duration=day&by=new
+Authorization: Bearer {{jwt}}
+
+### 신규 사용자 수 (이전 28일)
+GET {{localhost}}/v3/member/*/count?from_date=2021-09-03T00:00:00Z&to_date=2021-10-02T23:59:59Z&duration=day&by=new
+Authorization: Bearer {{jwt}}
+
+### 크래시 수 (어제 하루)
+GET {{localhost}}/v3/session/*/count?field_list=crash_count&from_date=2021-09-30T00:00:00Z&to_date=2021-09-30T23:59:59Z&duration=day
+Authorization: Bearer {{jwt}}
+
+### 크래시 수 (이전 7일)
+GET {{localhost}}/v3/session/*/count?field_list=crash_count&from_date=2021-09-30T00:00:00Z&to_date=2021-09-30T23:59:59Z
+Authorization: Bearer {{jwt}}
+
+### 크래시 수 (이전 28일)
+GET {{localhost}}/v3/session/*/count?field_list=crash_count&from_date=2021-09-30T00:00:00Z&to_date=2021-09-30T23:59:59Z
+Authorization: Bearer {{jwt}}
+
+
+

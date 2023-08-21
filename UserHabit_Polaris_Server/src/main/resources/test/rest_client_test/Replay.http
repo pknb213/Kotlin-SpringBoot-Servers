@@ -1,0 +1,6 @@
+###
+GET {{host}}/replay/*/csv
+?from_date=2021-12-08T00:00:00Z
+&to_date=2021-12-09T00:00:00Z
+# content-type: application/json
+Authorization: Bearer {{jwt}}

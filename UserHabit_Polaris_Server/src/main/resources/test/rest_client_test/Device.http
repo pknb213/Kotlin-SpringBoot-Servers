@@ -1,0 +1,23 @@
+###
+GET {{host}}/device/*/count
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&by=os_device_name
+&type=hour
+&is_crash=true
+&duration=day
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/device/*/rank
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&view_id_list=704415519
+# &version_list=
+# &by=
+# &type=
+# content-type: application/json
+Authorization: Bearer {{jwt}}

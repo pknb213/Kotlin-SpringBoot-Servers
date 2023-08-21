@@ -1,0 +1,54 @@
+###
+POST {{host}}/user/member
+content-type: application/json
+# Authorization: Bearer {{jwt}}
+
+{
+	"id":"{{id}}",
+	"password":"{{password}}"
+}
+### 로그인 테스트
+POST http://ec2-15-164-165-193.ap-northeast-2.compute.amazonaws.com:8000/v3/member/login
+#POST http://localhost:8000/v3/member/login
+content-type: application/json
+
+{
+	"id":"apsjal@userhabit.io",
+	"password":"111111a!"
+}
+
+### User 추가 (동일 id만 했을 때, 다른 파라미터없이 유저 정보가 수정 됨).
+### invaild_client 에러가 발생하지만
+#POST http://localhost:8000/v3/member
+POST http://ec2-15-164-165-193.ap-northeast-2.compute.amazonaws.com:8000/v3/member
+content-type: text/plain
+
+[{
+  "id": "apsjal@userhabit.io",
+  "password": "111111a!!",
+  "name": "jjy"
+}]
+
+### Auth email  (Not Use)
+POST http://localhost:8000/v3/member/auth_email
+
+[{
+  "id": "cyj@userhabit.io",
+  "key": "",
+}]
+
+### {code=401, message=Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential.
+### 에러는 발생하나 유저 정보 수정 됨. Outh2 에러.
+
+### 유저 패스워드 변경 (invalid_client 발생: email 관련)
+POST http://localhost:8000/v3/member
+content-type: text/plain
+
+[{
+  "id":"apsjal@userhabit.io",
+  "password": "111111a!",
+  "password_origin": "111111a!",
+  "password_new": "123456a!",
+  "password_confirm": "123456a!",
+  "name": "주준영"
+}]

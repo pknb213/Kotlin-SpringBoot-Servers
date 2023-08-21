@@ -1,0 +1,13 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "board_id":{"$oid": "600e77b325c84421fe528b27"},
+    "writer_id":"test01@userhabit.io",
+    "title":"dolor ducimus ea eos eveniet fugiat harum",
+    "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, debitis deleniti ",
+    "like_count":0,
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"},
+    "expiry_date": null
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "_id": {"$oid": "000000000000000000000001"},
+    "app_key":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+    "member_id":["cyj@userhabit.io", "test01@userhabit.io", "test011@userhabit.io"],
+    "name":"네이버",
+    "admin_id":"test01@userhabit.io",
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000001"},
+    "store_id":"io.userhabit.app",
+    "platform":"ios",
+    "session_count":{"$numberLong": "3000"},
+    "csv_count":{"$numberLong": "0"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "000000000000000000000002"},
+    "app_key":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc_2",
+    "member_id":["test01@userhabit.io"],
+    "name":"카카오",
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000001"},
+    "platform":"ios",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000003"},
+    "app_key":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc_4",
+    "member_id":["test02@userhabit.io"],
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000003"},
+    "platform":"android",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000004"},
+    "app_key":"b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+    "member_id":["sdk@userhabit.io"],
+    "name": "sdktest",
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000003"},
+    "platform":"android",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000005"},
+    "app_key":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+    "member_id":["sdk@userhabit.io"],
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000003"},
+    "platform":"android",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000006"},
+    "app_key":"38cace7b82cf0662e3dbbf9fc7995091bde4db27",
+    "member_id":["cjh@userhabit.io"],
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000003"},
+    "platform":"android",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2020-01-31T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "000000000000000000000007"},
+    "app_key":"38cace7b82cf0662e3dbbf9fc7995091bde4db27dkanklv",
+    "member_id":["jjaeun2@userhabit.io"],
+    "time_zone":"Asia/Seoul",
+    "company_id":{"$oid":"000000000000000000000003"},
+    "platform":"android",
+    "session_count":{"$numberLong": "3000"},
+    "created_date":{"$date":"2020-12-01T12:00:00Z"},
+    "updated_date":{"$date":"2020-01-01T12:00:00Z"},
+    "expiry_date":{"$date":"2021-12-31T12:00:00Z"}
+  }
+]

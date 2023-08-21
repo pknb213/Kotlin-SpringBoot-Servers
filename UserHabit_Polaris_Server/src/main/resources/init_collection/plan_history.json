@@ -1,0 +1,28 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "app_id":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+    "plan_id":"enterprise",
+    "member_id":"test01@userhabit.io",
+    "status":"update",
+    "price":{"$numberLong": "100000000"},
+    "price_type":"연간",
+    "session_amount":0,
+    "app_amount":0,
+    "member_amount":0,
+    "created_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "app_id":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+    "plan_id":"business",
+    "member_id":"test01@userhabit.io",
+    "status":"delete",
+    "price":{"$numberLong": "1000000"},
+    "price_type":"연간",
+    "session_amount":0,
+    "app_amount":0,
+    "member_amount":0,
+    "created_date": {"$date": "2020-01-01T12:00:00Z"}
+  }
+]

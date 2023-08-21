@@ -1,0 +1,20 @@
+[
+  {
+    "_id":"service_pack_1",
+    "name":"서비스 팩 1",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":"service_pack_2",
+    "name":"서비스 팩 2",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  },
+  {
+    "_id":"service_pack_3",
+    "name":"서비스 팩 3",
+    "created_date": {"$date": "2020-01-01T12:00:00Z"},
+    "updated_date": {"$date": "2020-01-01T12:00:00Z"}
+  }
+]

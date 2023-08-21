@@ -1,0 +1,24 @@
+###
+GET {{host}}/app/{{app_id_list}}
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+POST {{host}}/app
+content-type: application/json
+# Authorization: Bearer {{jwt}}
+
+{
+	"name":"이름",
+	"user_id":"test001@userhabit.io",
+}
+
+###
+GET {{host}}/app/*/count
+?from_date={{from_date}}
+&to_date={{to_date}}
+&by=new
+&duration=day
+&type=all
+# content-type: application/json
+Authorization: Bearer {{jwt}}

@@ -1,0 +1,47 @@
+### 로그인하고 얻은 data 값이 jwt 토큰이므로 그걸로 대체해서 GET 등 날릴때 사용해야 권한문제에서 벗어남.
+#POST {{localhost}}/v3/member/login
+POST {{aws}}/v3/member/login
+content-type: application/json
+
+{
+  "id":"test01@userhabit.io",
+  "password":"abcd1234"
+}
+
+###  사용자 대시보드
+## 주요 일간 지표
+#일간 기준 날짜		어제 하루의 데이터를 보여준다.	= 선택한 기간의 마지막 날짜 (오늘 제외)
+#사용자당 방문수		한 사용자가 하루에 몇 번이나 방문하는지	= 총 세션수 / 총 사용자수 (하루)
+#GET http://ec2-15-164-165-193.ap-northeast-2.compute.amazonaws.com:8000/v3/session/*/count
+### 총 세션 수
+GET {{localhost}}/v3/session/*/count?from_date=2021-01-01T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=real_time
+Authorization: Bearer {{jwt}}
+### 총 유저수
+GET {{localhost}}/v3/member/*/count?from_date=2022-01-01T00:00:00Z&duration=all&by=accumulated
+Authorization: Bearer {{jwt}}
+
+#세션당 체류시간		한 번 방문할 때마다 얼마나 머무는지	= 총 체류시간 / 총 세션수 (하루)
+### 총 체류시간
+GET {{localhost}}/v3/dwell_time/*/count?from_date=2021-01-01T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=all
+Authorization: Bearer {{jwt}}
+### 총 세션수 (하루)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-18T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=day
+Authorization: Bearer {{jwt}}
+
+#세션당 스크린뷰		한 번 방문할 때마다 몇 개의 화면을 조회하는지	= 총 스크린뷰수 / 총 세션수 (하루)
+### 총 스크린뷰 수
+GET {{localhost}}/v3/view/*/count?from_date=2021-09-18T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=all&by=session
+Authorization: Bearer {{jwt}}
+### 총 세션수 (하루)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-18T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=day
+Authorization: Bearer {{jwt}}
+
+#세션당 액션수		한 번 방문할 때마다 몇 번의 액션을 하는지	= 총 액션수 / 총 세션수 (하루)
+### 총 액션 수
+GET {{localhost}}/v3/event/*/count?from_date=2021-09-18T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=all&type=all&by=all
+Authorization: Bearer {{jwt}}
+### 총 세션수 (하루)
+GET {{localhost}}/v3/session/*/count?from_date=2021-09-18T00:00:00Z&to_date=2021-12-31T14:59:59Z&duration=day
+Authorization: Bearer {{jwt}}
+
+#추이 차트		위 주요 일간 지표의 2주 데이터 표시

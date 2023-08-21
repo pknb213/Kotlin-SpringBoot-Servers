@@ -1,0 +1,42 @@
+[
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b27"},
+    "company_id":{"$oid":"000000000000000000000001"},
+
+    "plan_name":"엔터프라이즈",
+    "price": {"$numberLong": "5000000"},
+    "price_off": {"$numberLong": "500000"},
+
+    "plan_begin_date": {"$date": "2021-03-01T12:00:00Z"},
+    "plan_end_date": {"$date": "2022-03-01T12:00:00Z"},
+
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b28"},
+    "company_id":{"$oid":"000000000000000000000001"},
+
+    "plan_name":"엔터프라이즈",
+    "price": {"$numberLong": "5000000"},
+    "price_off": {"$numberLong": "500000"},
+
+    "plan_begin_date": {"$date": "2021-03-01T12:00:00Z"},
+    "plan_end_date": {"$date": "2022-03-01T12:00:00Z"},
+
+    "created_date": {"$date": "2021-05-01T12:00:00Z"},
+    "updated_date": {"$date": "2021-05-01T12:00:00Z"}
+  },
+  {
+    "_id":{"$oid": "600e77b325c84421fe528b29"},
+    "payment_id":"hana_card",
+    "plan_id":null,
+    "service_id":"service_pack_1",
+    "status":"done",
+    "price":99999,
+    "usage_view":9999,
+    "open_date":{"$date":"2020-01-01T12:00:00Z"},
+    "close_date":{"$date":"2020-01-01T12:00:00Z"},
+    "created_date":{"$date":"2020-01-01T12:00:00Z"}
+  }
+]

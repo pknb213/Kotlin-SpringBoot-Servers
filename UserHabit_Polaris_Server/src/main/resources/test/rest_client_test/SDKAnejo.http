@@ -1,0 +1,201 @@
+@hostport = http://localhost:8000
+@apikey = e6c101f020e1018b5ba17cdbe32ade2d679b44bc
+@deviceId = 32b14ea195b635e1f6581364a3415a4206c33f40
+@cuuid = {{$guid}}
+@viewId1 = com.lcyer.sample.scroll.ui.MainActivity::MainActivity2222
+@viewId2 = viewId_2222
+@appVersion1 = 1.2.7
+@appVersion2 = 1.2.8
+@objectId1 = object_id_01
+@objectId2 = object_id_01
+@file_0 = ios.png
+@file_1 = nginx.png
+
+################################################################################
+### session close
+POST {{hostport}}/v2/a/{{apikey}}/s/{{deviceId}}/{{cuuid}}/c
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="d"
+
+{
+  "d":{
+    "c":"beyondx",
+    "b":"exynos9820",
+    "i":"8bf672af9b5860509dbdd180b7b40136abf90ae7",
+    "m":"samsung SM-G977N",
+    "n":"sumsung SM-G977N",
+    "s":{"w":1080,"h":2050},
+    "d":420,
+    "o":1
+  },
+  "a":{
+    "a":"e6c101f020e1018b5ba17cdbe32ade2d679b44bc",
+    "c":14,
+    "n":"1.1.1",
+    "s":12030,
+    "v":"1.2.3"
+  },
+  "s":{
+    "i":"33760856e19f406ba8a37e897e46977b",
+    "t":1625449951965,
+    "v":"10",
+    "l":"ko_KR",
+    "o":"+09:00",
+    "z":"Asia\/Seoul",
+    "c":85,
+    "u":675917467,
+    "d":1625449951965,
+    "n":7
+  },
+  "w":3,
+  "q":0,
+  "c":0,
+  "n":7,
+  "r":"oxo"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="f"; filename="sample.gz"
+Content-Type: image/png
+
+< ../sample.gz
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+################################################################################
+### session open
+POST {{hostport}}/v2/a/{{apikey}}/s/{{deviceId}}/{{cuuid}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="d"
+
+[{
+	"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+	"si":"{{$randomInt 100000000 999999999}}",
+	"ab":16,
+	"av":"1.1.3",
+	"usv":37,
+	"dc":"crownlteks",
+	"db":"exynos9810",
+	"di":"a82c219d0dab0af46c4bee6317b6858acb86bc00",
+	"dm":"samsung SM-N960N",
+	"dn":"samsung SM-N960N",
+	"dw":1080,
+	"dh":2076,
+	"dd":480,
+	"dov":10,
+	"dl":"ko_KR",
+	"dz":"Asia/Seoul",
+	"do":1,
+	"st":1590106763301,
+	"se":598,
+	"sn":7
+},
+{
+	"ak":"b3068e50a8afca37a2909990f9b8c0f7efbe2168cc",
+	"si":"{{$randomInt 100000000 999999999}}",
+	"ab":16,
+	"av":"1.1.3",
+	"usv":37,
+	"dc":"crownlteks",
+	"db":"exynos9810",
+	"di":"a82c219d0dab0af46c4bee6317b6858acb86bc00",
+	"dm":"samsung SM-N960N",
+	"dn":"samsung SM-N960N",
+	"dw":1080,
+	"dh":2076,
+	"dd":480,
+	"dov":10,
+	"dl":"ko_KR",
+	"dz":"Asia/Seoul",
+	"do":1,
+	"st":1590106763301,
+	"se":598,
+	"sn":7
+}
+]
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+################################################################################
+### get screenshot
+POST {{hostport}}/v2/a/{{apikey}}/g
+content-type: text/plain
+# Authorization: Bearer {{jwt}}
+
+### post view
+POST {{hostport}}/v2/a/{{apikey}}/v
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="d"
+
+[
+ 	{"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"{{viewId1}}","av":"{{appVersion1}}","vit":"jpg"},
+	{"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"{{viewId2}}","av":"{{appVersion2}}","vit":"jpg"}
+]
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_0"; filename="{{file_0}}"
+Content-Type: image/png
+
+< ./attach/{{file_0}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_1"; filename="{{file_1}}"
+Content-Type: image/png
+
+< ./attach/{{file_1}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+################################################################################
+### post object
+POST {{hostport}}/v2/a/{{apikey}}/o
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="d"
+
+[
+	{"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"{{viewId1}}","av":"{{appVersion1}}","vit":"jpg","oi":"{{objectId1}}"},
+	{"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168","vi":"{{viewId2}}","av":"{{appVersion2}}","vit":"jpg","oi":"{{objectId2}}"}
+]
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_0"; filename="{{file_0}}"
+Content-Type: image/png
+
+< ./attach/{{file_0}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_1"; filename="{{file_1}}"
+Content-Type: image/png
+
+< ./attach/{{file_1}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+################################################################################
+### post scroll
+POST {{hostport}}/v2/a/{{apikey}}/ss
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Bearer {{jwt}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="d"
+
+[
+	{
+		"ak":"dev_b3068e50a8afca37a2909990f9b8c0f7efbe2168",
+		"vi":"{{viewId1}}",
+		"av":"{{appVersion1}}",
+		"vit":"jpg",
+		"svi":"scroll",
+		"svn":6
+	}
+]
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_0"; filename="{{file_0}}"
+Content-Type: image/png
+
+< ./attach/{{file_0}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

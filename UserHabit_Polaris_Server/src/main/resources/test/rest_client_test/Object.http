@@ -1,0 +1,27 @@
+###
+GET {{host}}/object
+?app_id_list={{app_id_list}}
+&version_list=
+&skip=
+&limit=
+&view_id_list=-998904292,1689935380
+&object_id_list=com.tistory.lky1001.android.cheonanbus:id/navigation_favorite
+# content-type: application/json
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/object/*/count
+?app_id_list={{app_id_list}}
+&from_date={{from_date}}
+&to_date={{to_date}}
+&version_list=
+&view_hash_id=1689935380
+&after_view_hash_id=1689935380
+&by=flow
+&type=
+&sort_key=value
+&sort_value=-1
+&skip=0
+&limit=1
+# content-type: application/json
+Authorization: Bearer {{jwt}}
