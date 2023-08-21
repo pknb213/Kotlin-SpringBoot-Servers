@@ -10,6 +10,10 @@ Prod용 서버는 없습니다. \
 SpringBoot3.0 + Reactor + Kotlin + Mongo를 이용한 \
 기본적인 REST 서버입니다.
 
+## 2. UserHabit Polaris Server
+Userhabit 재직 중, 신규 개발에 참가한 서버입니다. \
+Springboot가 아닌 Netty 기반인 Reactor 프레임워크로 구현한 서버입니다.
+
 ## 2. Spark
 Kotlin Spark API by jetbrain에서 지원한 kotlin용 API 라이브러리를 \
 사용한 Apache Spark 예제 프로젝트입니다. \
