@@ -1,0 +1,5 @@
+description = "adapter module"
+
+dependencies {
+
+}

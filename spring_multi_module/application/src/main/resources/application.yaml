@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev
+#    include: core
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev

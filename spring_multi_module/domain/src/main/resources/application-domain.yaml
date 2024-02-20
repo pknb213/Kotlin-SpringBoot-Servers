@@ -1,0 +1,19 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:dchecklist;MODE=MySQL
+#    username: root
+#    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      properties:
+        hibernate:
+          format_sql: true
+        show-sql: true
+        generate-ddl: true
+        database-platform: org.hibernate.dialect.MySQL8Dialect
