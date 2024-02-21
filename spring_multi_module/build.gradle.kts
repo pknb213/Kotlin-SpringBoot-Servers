@@ -36,7 +36,7 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-//        developmentOnly("org.springframework.boot:spring-boot-devtools")
+        developmentOnly("org.springframework.boot:spring-boot-devtools")
 
         // Kotlin
         implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -48,7 +48,7 @@ subprojects {
 
         // DB connect
         runtimeOnly("com.h2database:h2")
-        runtimeOnly("mysql:mysql-connector-java")
+//        runtimeOnly("mysql:mysql-connector-java")
 
         // Test
         testImplementation("org.springframework.boot:spring-boot-starter-test")
