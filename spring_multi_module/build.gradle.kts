@@ -33,6 +33,7 @@ subprojects {
 
     dependencies {
         // Springboot
+//        implementation("org.springframework.boot:spring-boot-starter-actuator")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -47,11 +48,19 @@ subprojects {
         annotationProcessor("org.projectlombok:lombok")
 
         // DB connect
-        runtimeOnly("com.h2database:h2")
-//        runtimeOnly("mysql:mysql-connector-java")
+//        implementation("org.mariadb.jdbc:mariadb-java-client") // AWS Secrets Manager JDBC 는 Wrapper 이기 때문에, 별도로 DB에 맞는 Driver 의존성을 추가해야한다.
+//        implementation("mysql:mysql-connector-java")
+
+        // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+        implementation("org.apache.commons:commons-lang3:3.12.0")
 
         // Test
-        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        runtimeOnly("com.h2database:h2")
+        testImplementation("io.mockk:mockk:1.12.0")
+        testImplementation("com.ninja-squad:springmockk:2.0.3")
+        testImplementation("org.springframework.boot:spring-boot-starter-test") {
+            exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+        }
     }
 
     tasks.withType<KotlinCompile> {
@@ -60,8 +69,27 @@ subprojects {
             jvmTarget = "17"
         }
     }
+
     tasks.withType<Test> {
         useJUnitPlatform()
+        testLogging {
+            events("passed", "failed", "skipped")
+            setExceptionFormat("full")
+        }
+    }
+
+    tasks.test {
+        useJUnitPlatform() {
+            includeTags("unitTest")
+            excludeTags("integrationTest")
+        }
+    }
+
+    task<Test>("integration") {
+        useJUnitPlatform() {
+            excludeTags("unitTest")
+            includeTags("integrationTest")
+        }
     }
 
     configurations {
@@ -75,11 +103,57 @@ subprojects {
 project(":application") {
     dependencies {
         implementation(project(":domain"))
+//        compileOnly(project(":application"))
     }
 }
 
+project(":domain") {
+    dependencies {
+//        implementation(project(":infrastructure"))
+    }
+}
+
+project(":adapter") {
+    dependencies {
+        implementation(project(":infrastructure"))
+        implementation(project(":application"))
+    }
+}
+
+project(":infrastructure") {
+    dependencies {
+        implementation(project(":domain"))
+        implementation(project(":application"))
+    }
+}
+
+
 // domain 설정
 project(":domain") {
+    val jar: Jar by tasks
+    val bootJar: BootJar by tasks
+
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
+project(":adapter") {
+    val jar: Jar by tasks
+    val bootJar: BootJar by tasks
+
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
+project(":application") {
+    val jar: Jar by tasks
+    val bootJar: BootJar by tasks
+
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
+project(":infrastructure") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 

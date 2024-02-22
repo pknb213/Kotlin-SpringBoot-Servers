@@ -1,0 +1,3 @@
+### GET request with a header
+GET https://localhost:8080/api/user
+Accept: application/json

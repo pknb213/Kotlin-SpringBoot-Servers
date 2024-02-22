@@ -1,7 +1,7 @@
 description = "Domain module"
 
 plugins {
-
+//    kotlin("kapt")
 }
 
 allOpen {
