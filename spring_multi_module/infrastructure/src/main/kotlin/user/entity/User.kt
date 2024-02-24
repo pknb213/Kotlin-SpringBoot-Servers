@@ -1,4 +1,7 @@
-package com.example.entity
+package com.example.user.entity
+
+import com.example.common.Common
+import com.example.entity.UserRole
 
 
 data class User(

@@ -102,7 +102,7 @@ subprojects {
 // application <- domain dependency
 project(":application") {
     dependencies {
-        implementation(project(":domain"))
+        implementation(project(":infrastructure"))
 //        compileOnly(project(":application"))
     }
 }
@@ -123,7 +123,7 @@ project(":adapter") {
 project(":infrastructure") {
     dependencies {
         implementation(project(":domain"))
-        implementation(project(":application"))
+//        implementation(project(":application"))
     }
 }
 
@@ -149,8 +149,8 @@ project(":application") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 
-    bootJar.enabled = false
-    jar.enabled = true
+    bootJar.enabled = true
+    jar.enabled = false
 }
 
 project(":infrastructure") {

@@ -1,8 +1,11 @@
 package com.example.repository
 
-import com.example.entity.User
+import com.example.entity.UserEntity
+import org.apache.catalina.User
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserRepository {
-    fun save(user: User)
-    fun findByEmail(email: String): User?
+
+interface UserRepository: JpaRepository<UserEntity, Long> {
+    fun save(user: UserEntity)
+    fun findByEmail(email: String): UserEntity?
 }

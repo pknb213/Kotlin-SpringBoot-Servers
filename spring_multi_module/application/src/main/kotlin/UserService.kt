@@ -1,13 +1,15 @@
 package com.example
 
-import com.example.entity.User
 import com.example.repository.UserRepository
+import com.example.user.entity.User
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Transactional(readOnly = false)
 class UserService(
+    @Autowired
     private val userRepository: UserRepository
 ) {
     fun createUser() {

@@ -1,4 +1,4 @@
-package com.example.entity
+package com.example.common
 
 import java.time.ZonedDateTime
 

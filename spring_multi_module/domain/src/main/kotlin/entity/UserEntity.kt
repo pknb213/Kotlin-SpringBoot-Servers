@@ -1,10 +1,9 @@
-package com.example.user.entity
+package com.example.entity
 
-import com.example.common.CommonEntity
 import jakarta.persistence.*
 
+@Table(name = "users")
 @Entity
-@Table(name = "user")
 class UserEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long = 0L,
     @Column(name = "email") val email: String,
