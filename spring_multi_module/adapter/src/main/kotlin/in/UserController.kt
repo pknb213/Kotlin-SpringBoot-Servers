@@ -1,5 +1,6 @@
-package com.example
+package com.example.`in`
 
+import com.example.UserService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

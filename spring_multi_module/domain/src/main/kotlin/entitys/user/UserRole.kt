@@ -1,4 +1,4 @@
-package com.example.entity
+package com.example.entitys.user
 
 enum class UserRole(
     val id: Long,

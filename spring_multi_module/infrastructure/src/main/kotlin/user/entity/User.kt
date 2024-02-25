@@ -1,7 +1,7 @@
 package com.example.user.entity
 
 import com.example.common.Common
-import com.example.entity.UserRole
+import com.example.entitys.user.UserRole
 
 
 data class User(

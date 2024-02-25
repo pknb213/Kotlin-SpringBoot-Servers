@@ -103,8 +103,8 @@ subprojects {
 project(":application") {
     dependencies {
         implementation(project(":infrastructure"))
-        implementation(project(":domain"))
-//        implementation(project(":adapter"))
+//        implementation(project(":domain"))
+        api(project(":adapter"))
     }
 }
 
@@ -117,7 +117,7 @@ project(":domain") {
 project(":adapter") {
     dependencies {
         implementation(project(":infrastructure"))
-        implementation(project(":application"))
+//        api(project(":application"))
     }
 }
 

@@ -1,5 +1,6 @@
-package com.example.entity
+package com.example.entitys.user
 
+import com.example.entitys.common.CommonEntity
 import jakarta.persistence.*
 
 @Table(name = "users")

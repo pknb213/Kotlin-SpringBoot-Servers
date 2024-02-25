@@ -1,5 +1,6 @@
 package com.example.repository
 
+import com.example.entitys.user.UserRepository
 import com.example.user.entity.User
 
 interface UserInfraRepo: UserRepository {
