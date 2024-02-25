@@ -103,7 +103,8 @@ subprojects {
 project(":application") {
     dependencies {
         implementation(project(":infrastructure"))
-//        compileOnly(project(":application"))
+        implementation(project(":domain"))
+//        implementation(project(":adapter"))
     }
 }
 
