@@ -102,29 +102,34 @@ subprojects {
 // application <- domain dependency
 project(":application") {
     dependencies {
-        implementation(project(":infrastructure"))
-//        implementation(project(":domain"))
-        api(project(":adapter"))
+        implementation(project(":domain"))
     }
 }
 
 project(":domain") {
     dependencies {
-//        implementation(project(":infrastructure"))
     }
 }
 
-project(":adapter") {
+project(":adapter:in") {
     dependencies {
-        implementation(project(":infrastructure"))
-//        api(project(":application"))
+        implementation(project(":domain"))
+        implementation(project(":application"))
+    }
+}
+project(":adapter:out") {
+    dependencies {
+        implementation(project(":domain"))
+        implementation(project(":application"))
     }
 }
 
 project(":infrastructure") {
     dependencies {
         implementation(project(":domain"))
-//        implementation(project(":application"))
+        implementation(project(":adapter:in"))
+        implementation(project(":adapter:out"))
+        implementation(project(":application"))
     }
 }
 
@@ -138,7 +143,15 @@ project(":domain") {
     jar.enabled = true
 }
 
-project(":adapter") {
+project(":adapter:in") {
+    val jar: Jar by tasks
+    val bootJar: BootJar by tasks
+
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
+project(":adapter:out") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 
@@ -150,14 +163,14 @@ project(":application") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 
-    bootJar.enabled = true
-    jar.enabled = false
+    bootJar.enabled = false
+    jar.enabled = true
 }
 
 project(":infrastructure") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 
-    bootJar.enabled = false
-    jar.enabled = true
+    bootJar.enabled = true
+    jar.enabled = false
 }

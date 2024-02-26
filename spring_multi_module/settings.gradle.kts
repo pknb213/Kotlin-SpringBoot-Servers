@@ -6,3 +6,7 @@ include("domain")
 include("adapter")
 include("infrastructure")
 include("application")
+include("adapter:in")
+findProject(":adapter:in")?.name = "in"
+include("adapter:out")
+findProject(":adapter:out")?.name = "out"
