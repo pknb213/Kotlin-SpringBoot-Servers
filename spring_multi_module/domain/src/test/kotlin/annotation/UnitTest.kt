@@ -1,4 +1,4 @@
-package annotation
+package com.example.spring_multi_module.domain.test.annotation
 
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Tag

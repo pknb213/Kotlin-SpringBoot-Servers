@@ -1,6 +1,7 @@
-package com.example.infrastructure.application.ports.`in`
+package com.example.spring_multi_module.core.ports.`in`
 
-import com.example.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.user.User
+
 
 interface CreateUserUseCase {
     /**

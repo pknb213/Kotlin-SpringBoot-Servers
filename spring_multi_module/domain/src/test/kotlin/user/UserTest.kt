@@ -1,7 +1,8 @@
-package user
+package com.example.spring_multi_module.domain.test.user
 
-import annotation.UnitTest
-import com.example.entity.User
+import com.example.spring_multi_module.domain.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.user.UserRole
+import com.example.spring_multi_module.domain.test.annotation.UnitTest
 import org.apache.commons.lang3.StringUtils
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -19,9 +20,10 @@ internal class UserTest {
         val email = StringUtils.EMPTY
         val name = StringUtils.EMPTY
         val password = "0123456789"
+        val roleId = UserRole.COMMON
 
         //when
-        val result = User.of(email, password, name)
+        val result = User(1, email, password, name, roleId)
 
         //then
         assertThat(result.password.length).isGreaterThanOrEqualTo(8)
@@ -35,9 +37,10 @@ internal class UserTest {
         val email = StringUtils.EMPTY
         val name = StringUtils.EMPTY
         val password = "0"
+        val roleId = UserRole.COMMON
 
         //when
-        assertThatThrownBy { User.of(email, password, name) }
+        assertThatThrownBy { User(1, email, password, name, roleId) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("비밀번호는 8자 이상이어야 합니다.")
     }

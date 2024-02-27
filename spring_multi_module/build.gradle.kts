@@ -33,11 +33,11 @@ subprojects {
 
     dependencies {
         // Springboot
-//        implementation("org.springframework.boot:spring-boot-starter-actuator")
+        implementation("org.springframework.boot:spring-boot-starter-actuator")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         developmentOnly("org.springframework.boot:spring-boot-devtools")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         // Kotlin
         implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -100,7 +100,7 @@ subprojects {
 }
 
 // application <- domain dependency
-project(":application") {
+project(":core") {
     dependencies {
         implementation(project(":domain"))
     }
@@ -114,22 +114,25 @@ project(":domain") {
 project(":adapter:in") {
     dependencies {
         implementation(project(":domain"))
-        implementation(project(":application"))
+        implementation(project(":core"))
+//        testImplementation(testFixtures(project(":domain")))
     }
 }
 project(":adapter:out") {
     dependencies {
         implementation(project(":domain"))
-        implementation(project(":application"))
+        implementation(project(":core"))
     }
 }
 
 project(":infrastructure") {
     dependencies {
-        implementation(project(":domain"))
         implementation(project(":adapter:in"))
         implementation(project(":adapter:out"))
-        implementation(project(":application"))
+        implementation(project(":core"))
+        implementation(project(":domain"))
+//        testImplementation(testFixtures(project(":domain")))
+//        testImplementation(testFixtures(project(":adapters:out")))
     }
 }
 
@@ -159,7 +162,7 @@ project(":adapter:out") {
     jar.enabled = true
 }
 
-project(":application") {
+project(":core") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks
 
@@ -167,6 +170,7 @@ project(":application") {
     jar.enabled = true
 }
 
+// Todo: 개별 build.gradle.kts에 옮김
 project(":infrastructure") {
     val jar: Jar by tasks
     val bootJar: BootJar by tasks

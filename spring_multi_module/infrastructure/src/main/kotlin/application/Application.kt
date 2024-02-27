@@ -1,4 +1,4 @@
-package com.example.infrastructure
+package com.example
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,7 +7,7 @@ import org.springframework.boot.runApplication
 class Application
 
 fun main(args: Array<String>) {
-    System.setProperty("spring.config.name", "application-domain")
+//    System.setProperty("spring.config.name", "application-domain")
     runApplication<Application>(*args)
 }
 

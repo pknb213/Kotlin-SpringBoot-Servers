@@ -1,8 +1,7 @@
-package com.example.infrastructure.application.services
+package com.example.spring_multi_module.core.services
 
-import com.example.infrastructure.application.ports.`in`.CreateUserUseCase
-import com.example.infrastructure.application.ports.out.CreateUserPort
-import org.springframework.beans.factory.annotation.Autowired
+import com.example.spring_multi_module.core.ports.`in`.CreateUserUseCase
+import com.example.spring_multi_module.core.ports.out.CreateUserPort
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -20,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional
  */
 @Transactional(readOnly = true)
 class CreateUserUseCaseImpl (  // Todo: CreateUserService 명명도 나쁘지 않을 듯
-//    @Autowired
     private val createUserPort: CreateUserPort
 ): CreateUserUseCase {
     @Transactional
@@ -30,5 +28,4 @@ class CreateUserUseCaseImpl (  // Todo: CreateUserService 명명도 나쁘지 �
         val user = createUserPort.create(createUserInput.email, createUserInput.password, createUserInput.name)
         return CreateUserUseCase.fromDomainEntity(user)
     }
-
 }

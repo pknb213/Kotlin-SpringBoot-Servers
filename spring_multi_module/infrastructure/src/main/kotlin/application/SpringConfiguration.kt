@@ -1,4 +1,4 @@
-package com.example.infrastructure
+package com.example.spring_multi_module.infrastructure.application
 
 import org.springframework.context.annotation.Configuration
 

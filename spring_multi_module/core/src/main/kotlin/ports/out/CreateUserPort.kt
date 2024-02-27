@@ -1,6 +1,6 @@
-package com.example.infrastructure.application.ports.out
+package com.example.spring_multi_module.core.ports.out
 
-import com.example.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.user.User
 
 /**
  * 의존성 역전을 이용하여 application core가 영속성 계층에 의존하지 않도록 하는 것이 클린 아키텍처의 핵심이다.

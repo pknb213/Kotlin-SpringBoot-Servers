@@ -10,8 +10,31 @@ noArg {
 }
 
 dependencies {
-
+    // Springboot
+//    implementation("org.springframework.boot:spring-boot-starter-actuator")
+//    implementation("org.springframework.boot:spring-boot-starter-aop")
+//    implementation("org.springframework.boot:spring-boot-starter-web")
+//    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    // Format Dependency
+//    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    // Test Fixtures
+//    testImplementation(testFixtures(project(":domain")))
+//    testImplementation(testFixtures(project(":adapter:out")))
 }
+
+//dependencyManagement {
+//    imports {
+//        mavenBom()
+//    }
+//}
+
+//tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+//    enabled = true
+//}
+
+//tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+//    enabled = true
+//}
 
 /**
  * plugins {

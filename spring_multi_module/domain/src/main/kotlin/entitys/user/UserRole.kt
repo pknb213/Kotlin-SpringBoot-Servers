@@ -1,4 +1,4 @@
-package com.example.entitys.user
+package com.example.spring_multi_module.domain.entitys.user
 
 enum class UserRole(
     val id: Long,

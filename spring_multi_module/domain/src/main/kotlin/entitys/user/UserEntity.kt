@@ -1,6 +1,6 @@
-package com.example.entitys.user
+package com.example.spring_multi_module.domain.entitys.user
 
-import com.example.entitys.common.CommonEntity
+import com.example.spring_multi_module.domain.entitys.common.CommonEntity
 import jakarta.persistence.*
 
 /**
