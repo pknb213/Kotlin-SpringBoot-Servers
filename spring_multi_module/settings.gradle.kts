@@ -10,3 +10,4 @@ include("adapter:out")
 include("adapter:in")
 //findProject(":adapter:in")?.name = "in"
 //findProject(":adapter:out")?.name = "out"
+include("common")

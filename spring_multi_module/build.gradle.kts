@@ -103,6 +103,7 @@ subprojects {
 project(":core") {
     dependencies {
         implementation(project(":domain"))
+        implementation(project(":common"))
     }
 }
 
@@ -115,6 +116,7 @@ project(":adapter:in") {
     dependencies {
         implementation(project(":domain"))
         implementation(project(":core"))
+        implementation(project(":common"))
 //        testImplementation(testFixtures(project(":domain")))
     }
 }
@@ -122,6 +124,7 @@ project(":adapter:out") {
     dependencies {
         implementation(project(":domain"))
         implementation(project(":core"))
+        implementation(project(":common"))
     }
 }
 
@@ -131,6 +134,7 @@ project(":infrastructure") {
         implementation(project(":adapter:out"))
         implementation(project(":core"))
         implementation(project(":domain"))
+        implementation(project(":common"))
 //        testImplementation(testFixtures(project(":domain")))
 //        testImplementation(testFixtures(project(":adapters:out")))
     }
@@ -169,6 +173,15 @@ project(":core") {
     bootJar.enabled = false
     jar.enabled = true
 }
+
+project(":common") {
+    val jar: Jar by tasks
+    val bootJar: BootJar by tasks
+
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
 
 // Todo: 개별 build.gradle.kts에 옮김
 project(":infrastructure") {
