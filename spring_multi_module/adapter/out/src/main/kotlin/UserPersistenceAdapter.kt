@@ -4,6 +4,7 @@ import com.example.spring_multi_module.core.ports.out.CreateUserPort
 import com.example.spring_multi_module.domain.entitys.user.User
 import com.example.spring_multi_module.domain.entitys.user.UserRole
 import org.springframework.stereotype.Component
+import java.time.ZonedDateTime
 
 /**
  * Outgoing adapter는 application-core에서 선언한 outgoing port 인터페이스를 구현하는 클래스이다.
@@ -32,13 +33,14 @@ class UserPersistenceAdapter(
          * Account 엔터티 모델을 그대로 사용한다.
          * 즉, Web <-> Usecase 간에 완전 매핑 전략을, Usecase <-> Persistence 간에는 two-way 매핑 전략을 사용한다.
          */
-        return userRepository.save(
+        val res = userRepository.save(
             UserEntity(
                 email = email,
                 password = password,
                 name = name,
                 roleId = UserRole.COMMON
             )
-        ).toDomainEntity()
+        )
+        return res.toDomainEntity()
     }
 }

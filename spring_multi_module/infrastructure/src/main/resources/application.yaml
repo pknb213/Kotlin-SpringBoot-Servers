@@ -1,7 +1,10 @@
 spring:
   profiles:
     active: dev
-  #    include: core
+    include:
+#      - core
+#      - domain
+#      - adapter
 
   servlet:
     multipart:
@@ -12,9 +15,9 @@ spring:
       enabled: true
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:dchecklist;MODE=MySQL
-  #    username: root
-  #    password: root
+    url: jdbc:h2:file:./testdb;MODE=MySQL
+    username: sa
+    password:
 
   jpa:
     hibernate:
@@ -36,9 +39,9 @@ spring:
       enabled: true
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:dchecklist;MODE=MySQL
-  #    username: root
-  #    password: root
+    url: jdbc:h2:file:./testdb;MODE=MySQL
+    username: sa
+    password:
 
   jpa:
     hibernate:
@@ -60,9 +63,9 @@ spring:
       enabled: true
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:dchecklist;MODE=MySQL
-  #    username: root
-  #    password: root
+    url: jdbc:h2:file:./testdb;MODE=MySQL
+    username: sa
+    password:
 
   jpa:
     hibernate:

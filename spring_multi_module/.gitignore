@@ -38,3 +38,6 @@ bin/
 
 ### Kotlin ###
 .kotlin
+
+### Test Database ###
+testdb.*

@@ -36,16 +36,21 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-actuator")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.springframework.boot:spring-boot-starter-validation")
+        implementation("org.springframework.boot:spring-boot-starter-security")
         developmentOnly("org.springframework.boot:spring-boot-devtools")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         // Kotlin
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation(kotlin("stdlib"))
 
         // Lombook
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")
+
+        // Jwt
+        implementation("io.jsonwebtoken:jjwt-api:0.11.2")
 
         // DB connect
 //        implementation("org.mariadb.jdbc:mariadb-java-client") // AWS Secrets Manager JDBC 는 Wrapper 이기 때문에, 별도로 DB에 맞는 Driver 의존성을 추가해야한다.
