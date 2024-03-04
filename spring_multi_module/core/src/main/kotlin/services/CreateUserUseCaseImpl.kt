@@ -2,6 +2,8 @@ package com.example.spring_multi_module.core.services
 
 import com.example.spring_multi_module.core.ports.`in`.CreateUserUseCase
 import com.example.spring_multi_module.core.ports.out.CreateUserPort
+import com.example.spring_multi_module.domain.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.user.UserRole
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -25,7 +27,14 @@ class CreateUserUseCaseImpl (  // Todo: CreateUserService 명명도 나쁘지 �
     override fun createUser(
         createUserInput: CreateUserUseCase.CreateUserInput
     ): CreateUserUseCase.CreateUserOutput {
-        val user = createUserPort.create(createUserInput.email, createUserInput.password, createUserInput.name)
+        val user = createUserPort.create(
+            User(
+                email = createUserInput.email,
+                password = createUserInput.password,
+                name = createUserInput.name,
+                roleId = UserRole.COMMON
+            )
+        )
         return CreateUserUseCase.fromDomainEntity(user)
     }
 }

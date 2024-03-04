@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    restart:
+      enabled: true
   profiles:
     active: dev
     include:

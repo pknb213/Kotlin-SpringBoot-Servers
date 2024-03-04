@@ -8,9 +8,5 @@ import com.example.spring_multi_module.domain.entitys.user.User
  * ISP 원칙에 따라 outgoing port 또한 기능별로 세분화한다.
  */
 interface CreateUserPort {
-    fun create(
-        email: String,
-        password: String,
-        name: String
-    ): User
+    fun create(user: User): User
 }

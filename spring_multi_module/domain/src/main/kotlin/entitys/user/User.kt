@@ -1,9 +1,5 @@
 package com.example.spring_multi_module.domain.entitys.user
 
-import com.example.spring_multi_module.domain.entitys.common.CommonEntity
-import jakarta.persistence.*
-import java.time.ZonedDateTime
-
 /**
  * 헥사고날 아키텍처의 중심을 application-core라고 하며 가장 안쪽의 domain 역영과 바로 바깥의 application 영역을 합쳐 부르는 말이다.
  * DDD에 따라 domain 영역은 domain entity와 value object들로 구성된다.
@@ -38,11 +34,12 @@ import java.time.ZonedDateTime
 //}
 
 data class User (
-    val id: Long,
     val email: String,
     val password: String,
     val name: String,
     val roleId: UserRole,
-):CommonEntity() {
+) {
+    fun getId(user: User) {
 
+    }
 }
