@@ -1,5 +1,7 @@
 package com.example.spring_multi_module.domain.entitys.user
 
+import com.example.spring_multi_module.domain.entitys.common.CommonDomain
+
 /**
  * 헥사고날 아키텍처의 중심을 application-core라고 하며 가장 안쪽의 domain 역영과 바로 바깥의 application 영역을 합쳐 부르는 말이다.
  * DDD에 따라 domain 영역은 domain entity와 value object들로 구성된다.
@@ -13,33 +15,24 @@ package com.example.spring_multi_module.domain.entitys.user
  * Money와 같이 ID나 생명주기가 없는 도메인 객체를 Value Object라고 부른다.
  * 블록체인에 비유하자면 domain entity는 NFT이고, value object는 교환가능한 fungible token이다.
  */
-//data class Money(val amount: Long, val currency: Currency = Currency.KRW) {
-//    companion object {
-//        val ZERO = Money(0L)
-//    }
-//}
-//
-//operator fun Money.plus(money: Money) = Money(amount + money.amount)
-//operator fun Money.minus(money: Money) = Money(amount - money.amount)
-
-//@Table(name = "users")
-//@Entity
-//class UserEntity(
-//    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long = 0L,
-//    @Column(name = "email") val email: String,
-//    @Column(name = "password") val password: String,
-//    @Column(name = "name") val name: String,
-//    @Column(name = "roleId") val roleId: Long
-//): CommonEntity() {
-//}
-
 data class User (
+    val id: Long = 0L,
     val email: String,
     val password: String,
     val name: String,
     val roleId: UserRole,
-) {
-    fun getId(user: User) {
+): CommonDomain() {
+    fun getId(user: User): Long {
+        return user.id
+    }
 
+    fun of(email: String, password: String, name: String): User {
+        return User(
+            id = id,
+            email = email,
+            password = password,
+            name = name,
+            roleId = roleId,
+        )
     }
 }

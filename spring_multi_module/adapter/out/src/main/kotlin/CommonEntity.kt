@@ -1,8 +1,10 @@
-package com.example.spring_multi_module.domain.entitys.common
+package com.example.spring_multi_module.adapter.out
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass
+import jakarta.persistence.PrePersist
+import jakarta.persistence.PreUpdate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.ZonedDateTime
 
@@ -16,4 +18,15 @@ abstract class CommonEntity {
     @Column(name = "updated_at", columnDefinition = "DATE")
     var updatedAt: ZonedDateTime = ZonedDateTime.now()
         protected set
+
+    @PrePersist
+    fun prePersist() {
+        createdAt = ZonedDateTime.now()
+        updatedAt = ZonedDateTime.now()
+    }
+
+    @PreUpdate
+    fun preUpdate() {
+        updatedAt = ZonedDateTime.now()
+    }
 }

@@ -60,6 +60,7 @@ subprojects {
         implementation("org.apache.commons:commons-lang3:3.12.0")
 
         // Test
+        implementation("org.springframework.boot:spring-boot-starter-jdbc")
         runtimeOnly("com.h2database:h2")
         testImplementation("io.mockk:mockk:1.12.0")
         testImplementation("com.ninja-squad:springmockk:2.0.3")

@@ -44,7 +44,7 @@ interface CreateUserUseCase {
 
     companion object {
 //        val validateCommand
-        fun fromDomainEntity(user: User): CreateUserOutput {
+        fun fromDomain(user: User): CreateUserOutput {
             return CreateUserOutput(
                 ok = true,
                 error = null,

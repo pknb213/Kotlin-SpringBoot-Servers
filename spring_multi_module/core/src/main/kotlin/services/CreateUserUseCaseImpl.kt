@@ -35,6 +35,6 @@ class CreateUserUseCaseImpl (  // Todo: CreateUserService 명명도 나쁘지 �
                 roleId = UserRole.COMMON
             )
         )
-        return CreateUserUseCase.fromDomainEntity(user)
+        return CreateUserUseCase.fromDomain(user)
     }
 }

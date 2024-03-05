@@ -1,7 +1,9 @@
 package com.example.spring_multi_module.adapter.out
 
 import com.example.spring_multi_module.core.ports.out.CreateUserPort
+import com.example.spring_multi_module.core.ports.out.GetAllUserPort
 import com.example.spring_multi_module.domain.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.user.UserRole
 import org.springframework.stereotype.Component
 
 /**
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component
 @Component
 class UserPersistenceAdapter(
     private val userRepository: IUserRepository
-): CreateUserPort {
+): CreateUserPort, GetAllUserPort {
     /**
      * JPA 입장에서는 Jpa Entity가 입력 모델이다.
      * Usecase -> Persistence로 요청할 때는 별도의 command 객체를 생성하지 않고
@@ -27,9 +29,15 @@ class UserPersistenceAdapter(
          * Account 엔터티 모델을 그대로 사용한다.
          * 즉, Web <-> Usecase 간에 완전 매핑 전략을, Usecase <-> Persistence 간에는 two-way 매핑 전략을 사용한다.
          */
-        val res = userRepository.save(
+        return userRepository.save(
             UserEntity.fromDomain(user)
-        )
-        return res.toDomain()
+        ).toDomain()
     }
+    override fun getAll(): List<User> {
+//        println("Get PersistenceAdapter")
+        return userRepository.findAll().map {
+            it.toDomain()
+        }
+    }
+
 }

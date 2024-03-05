@@ -40,6 +40,11 @@ class SecurityConfig {
                     .permitAll()
                     .anyRequest().authenticated()    // 나머지 API 는 전부 인증 필요
             }
+            .headers {
+                it.frameOptions {
+                    it.sameOrigin()
+                }
+            }
             // JwtFilter 를 addFilterBefore 로 등록했던 JwtSecurityConfig 클래스를 적용
             .addFilterBefore(JwtFilter(), UsernamePasswordAuthenticationFilter::class.java)
 
