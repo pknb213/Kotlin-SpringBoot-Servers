@@ -1,7 +1,7 @@
 package com.example.spring_multi_module.adapter.`in`
 
-import com.example.spring_multi_module.adapter.`in`.UserController
-import com.example.spring_multi_module.core.ports.`in`.CreateUserUseCase
+import com.example.spring_multi_module.UserController
+import com.example.spring_multi_module.ports.`in`.CreateUserUseCase
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

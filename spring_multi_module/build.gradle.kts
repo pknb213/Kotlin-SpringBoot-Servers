@@ -54,14 +54,15 @@ subprojects {
 
         // DB connect
 //        implementation("org.mariadb.jdbc:mariadb-java-client") // AWS Secrets Manager JDBC 는 Wrapper 이기 때문에, 별도로 DB에 맞는 Driver 의존성을 추가해야한다.
-//        implementation("mysql:mysql-connector-java")
+        runtimeOnly("com.mysql:mysql-connector-j")
+//        runtimeOnly 'com.mysql:mysql-connector-java  8.0.31 이하버전
+        runtimeOnly("com.h2database:h2")
 
         // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
         implementation("org.apache.commons:commons-lang3:3.12.0")
 
         // Test
         implementation("org.springframework.boot:spring-boot-starter-jdbc")
-        runtimeOnly("com.h2database:h2")
         testImplementation("io.mockk:mockk:1.12.0")
         testImplementation("com.ninja-squad:springmockk:2.0.3")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {

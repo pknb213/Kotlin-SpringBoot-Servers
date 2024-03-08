@@ -1,7 +1,7 @@
 package com.example.spring_multi_module.domain
 
-import com.example.spring_multi_module.domain.entitys.user.User
-import com.example.spring_multi_module.domain.entitys.user.UserRole
+import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.UserRole
 
 object UserTestFixture {
     const val USER_ID = 1L

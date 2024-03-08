@@ -1,7 +1,7 @@
 package com.example.spring_multi_module.domain.test.user
 
-import com.example.spring_multi_module.domain.entitys.user.User
-import com.example.spring_multi_module.domain.entitys.user.UserRole
+import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.UserRole
 import com.example.spring_multi_module.domain.test.annotation.UnitTest
 import org.apache.commons.lang3.StringUtils
 import org.assertj.core.api.Assertions.assertThat
