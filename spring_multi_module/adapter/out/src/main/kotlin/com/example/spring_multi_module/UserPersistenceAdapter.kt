@@ -1,8 +1,11 @@
 package com.example.spring_multi_module
 
+import com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.entitys.user.UserRole
 import com.example.spring_multi_module.ports.out.CreateUserPort
+import com.example.spring_multi_module.ports.out.DeleteUserPort
 import com.example.spring_multi_module.ports.out.GetAllUserPort
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.ports.out.PutUserPort
 import org.springframework.stereotype.Component
 
 /**
@@ -16,7 +19,7 @@ import org.springframework.stereotype.Component
 @Component
 class UserPersistenceAdapter(
     private val userRepository: IUserRepository
-): CreateUserPort, GetAllUserPort {
+): CreateUserPort, GetAllUserPort, PutUserPort, DeleteUserPort {
     /**
      * JPA 입장에서는 Jpa Entity가 입력 모델이다.
      * Usecase -> Persistence로 요청할 때는 별도의 command 객체를 생성하지 않고
@@ -39,4 +42,35 @@ class UserPersistenceAdapter(
         }
     }
 
+    override fun put(
+        email: String,
+        password: String,
+        name: String,
+        roleId: UserRole
+    ): Boolean {
+        try {
+            val user = userRepository.save(
+                UserEntity(
+                    email = email,
+                    password = password,
+                    name = name,
+                    roleId = roleId
+                )
+            )
+            println("Put User => ${user}")
+            return user.id != null
+        } catch (e: Exception) {
+            return false
+        }
+    }
+
+    override fun deleteUser(id: Long): Boolean {
+        try {
+            userRepository.deleteById(id)
+            println("Delete User => ${id}")
+            return true
+        }catch (e: Exception) {
+            return false
+        }
+    }
 }

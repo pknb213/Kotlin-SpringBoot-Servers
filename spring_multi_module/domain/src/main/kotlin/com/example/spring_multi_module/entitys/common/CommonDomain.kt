@@ -1,4 +1,4 @@
-package com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.common
+package com.example.spring_multi_module.entitys.common
 
 import java.time.ZonedDateTime
 

@@ -11,3 +11,18 @@ Content-Type: application/json
   "password": "1234",
   "name": "youngjo"
 }
+
+###
+PUT http://localhost:8080/api
+Content-Type: application/json
+
+{
+  "email": "test@dong-a.com",
+  "password": "1234",
+  "name": "Hong"
+}
+
+###
+DELETE http://localhost:8080/api/1
+Accept: application/json
+
