@@ -16,10 +16,10 @@ class PutUserUseCaseImpl (
         putUserInput: PutUserUseCase.PutUserInput
     ): PutUserUseCase.PutUserOutput {
         putUserPort.put(
-            name = putUserInput.name?:"",
-            email = putUserInput.email?:"",
-            password = putUserInput.password?:"",
-            roleId = putUserInput.roleId?:UserRole.COMMON
+            name = putUserInput.name,
+            email = putUserInput.email,
+            password = putUserInput.password,
+            roleId = putUserInput.roleId ?: UserRole.COMMON
         )
         return PutUserUseCase.PutUserOutput(
             ok = true,

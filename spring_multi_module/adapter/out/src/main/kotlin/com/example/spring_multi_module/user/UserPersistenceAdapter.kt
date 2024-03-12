@@ -1,4 +1,4 @@
-package com.example.spring_multi_module
+package com.example.spring_multi_module.user
 
 import com.example.spring_multi_module.entitys.user.User
 import com.example.spring_multi_module.entitys.user.UserRole
@@ -43,18 +43,18 @@ class UserPersistenceAdapter(
     }
 
     override fun put(
-        email: String,
-        password: String,
-        name: String,
-        roleId: UserRole
+        email: String?,
+        password: String?,
+        name: String?,
+        roleId: UserRole?
     ): Boolean {
         try {
             val user = userRepository.save(
                 UserEntity(
-                    email = email,
-                    password = password,
-                    name = name,
-                    roleId = roleId
+                    email = email ?: "",
+                    password = password ?: "",
+                    name = name ?: "",
+                    roleId = roleId ?: UserRole.COMMON
                 )
             )
             println("Put User => ${user}")

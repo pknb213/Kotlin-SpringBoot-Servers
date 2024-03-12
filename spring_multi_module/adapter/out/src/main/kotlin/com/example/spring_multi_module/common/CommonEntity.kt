@@ -1,4 +1,4 @@
-package com.example.spring_multi_module
+package com.example.spring_multi_module.common
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
