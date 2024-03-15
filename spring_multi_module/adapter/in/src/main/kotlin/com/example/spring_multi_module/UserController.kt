@@ -6,6 +6,7 @@ import com.example.spring_multi_module.ports.`in`.DeleteUserUseCase
 import com.example.spring_multi_module.ports.`in`.PutUserUseCase
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -46,24 +47,22 @@ class UserController(
         @RequestBody putUserPasswordInput: PutUserUseCase.PutUserInput
     ): PutUserUseCase.PutUserOutput {
         println("Put User Password API")
-        val (id) = putUserPasswordInput
+        val (email, password, name, roleId) = putUserPasswordInput
         return putUserUseCase.putUser(
             PutUserUseCase.PutUserInput(
-                id = id
+                email = email,
+                password = password,
+                name = name,
+                roleId =  roleId
             )
         )
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     fun deleteUser(
-        @RequestBody deleteUserInput: DeleteUserUseCase.DeleteUserInput
+        @PathVariable id: Long
     ): DeleteUserUseCase.DeleteUserOutput {
         println("Delete User API")
-        val (id) = deleteUserInput
-        return deleteUserUseCase.deleteUser(
-            DeleteUserUseCase.DeleteUserInput(
-                id = id
-            )
-        )
+        return deleteUserUseCase.delete(id)
     }
 }

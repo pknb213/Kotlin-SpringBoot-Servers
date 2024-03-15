@@ -1,7 +1,7 @@
 package com.example.spring_multi_module.ports.`in`
 
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.User
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.UserRole
+import com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.entitys.user.UserRole
 import java.lang.Error
 
 interface GetAllUserUseCase {

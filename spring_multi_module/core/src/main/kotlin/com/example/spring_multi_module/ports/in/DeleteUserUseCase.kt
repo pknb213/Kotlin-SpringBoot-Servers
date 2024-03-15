@@ -1,15 +1,13 @@
 package com.example.spring_multi_module.ports.`in`
 
-interface DeleteUserUseCase {
-    fun deleteUser(deleteUserInput: DeleteUserInput): DeleteUserOutput
+import jakarta.validation.constraints.Null
 
-    data class DeleteUserInput(
-        val id: Long
-    )
+interface DeleteUserUseCase {
+    fun delete(id: Long): DeleteUserOutput
 
     data class DeleteUserOutput(
         val ok: Boolean,
         val error: Error?,
-        val data: Any
+        val data: Null?
     )
 }

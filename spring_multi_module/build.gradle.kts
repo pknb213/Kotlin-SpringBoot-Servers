@@ -57,6 +57,7 @@ subprojects {
         runtimeOnly("com.mysql:mysql-connector-j")
 //        runtimeOnly 'com.mysql:mysql-connector-java  8.0.31 이하버전
         runtimeOnly("com.h2database:h2")
+        implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2")
 
         // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
         implementation("org.apache.commons:commons-lang3:3.12.0")

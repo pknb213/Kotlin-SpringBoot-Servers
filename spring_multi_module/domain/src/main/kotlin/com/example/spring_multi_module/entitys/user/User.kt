@@ -1,6 +1,6 @@
-package com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user
+package com.example.spring_multi_module.entitys.user
 
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.common.CommonDomain
+import com.example.spring_multi_module.entitys.common.CommonDomain
 
 /**
  * 헥사고날 아키텍처의 중심을 application-core라고 하며 가장 안쪽의 domain 역영과 바로 바깥의 application 영역을 합쳐 부르는 말이다.

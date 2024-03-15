@@ -2,8 +2,8 @@ package com.example.spring_multi_module.ports.services
 
 import com.example.spring_multi_module.ports.`in`.CreateUserUseCase
 import com.example.spring_multi_module.ports.out.CreateUserPort
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.User
-import com.example.spring_multi_module.domain.entitys.com.example.spring_multi_module.entitys.user.UserRole
+import com.example.spring_multi_module.entitys.user.User
+import com.example.spring_multi_module.entitys.user.UserRole
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
